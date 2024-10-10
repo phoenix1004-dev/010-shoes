@@ -125,6 +125,7 @@ const NewsBadge = styled(YellowPane)`
   left: 34px;
   top: 34px;
   padding: 10px 30px;
+  z-index: 1000;
 `;
 
 const Container = styled.div`
@@ -145,9 +146,9 @@ const NewsPage = () => {
     <WithAppbar>
       <Root className="full">
         <Container>
-          <NewsBadge>Latest news</NewsBadge>
           <Gallery>
             <div className="gallery-1">
+              <NewsBadge>Latest news</NewsBadge>
               <Text>The latest news article preview always goes here</Text>
             </div>
             <div className="gallery-2">

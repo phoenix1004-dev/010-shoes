@@ -3,9 +3,6 @@ import Nav from "components/Nav";
 import CSS from "csstype";
 import { styled } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import { useContext, useEffect } from "react";
-import { CustomThemeContext } from "contexts/CustomThemeContext";
-import { whiteTheme, darkTheme } from "components/theme";
 
 const Root = styled.div`
   min-height: 100vh;

@@ -84,6 +84,7 @@ const TabContainer = styled.div`
 `;
 const SneakerDetail = () => {
   const [selected, setSelected] = useState<number | string>(1);
+  const [selectedTitle, setSelectedTitle] = useState<string>("Leather");
   return (
     <Root className="full">
       <Container>
@@ -92,7 +93,11 @@ const SneakerDetail = () => {
             <VerticalTab
               tabs={MOCK}
               selected={selected}
-              onTabChange={(id) => setSelected(id)}
+              onTabChange={(id) => {
+                const val: number = typeof id === "string" ? parseInt(id) : id;
+                setSelected(id);
+                setSelectedTitle(MOCK[val - 1].label);
+              }}
             />
           </TabContainer>
         </Left>
@@ -100,7 +105,8 @@ const SneakerDetail = () => {
           <Img src={shoesImg} alt="" />
           <Box maxWidth="600px" margin="40px 0 0 0">
             <PageTitle style={{ color: "#0b0b18" }}>
-              02: <b>Sole</b>
+              {selected < "10" ? "0" + selected : selected}:{" "}
+              <b>{selectedTitle}</b>
             </PageTitle>
             <HR />
             <Text style={{ color: "#0b0b18" }}>

@@ -5,7 +5,7 @@ import WithAppbar from "layouts/WithAppbar";
 const SneakerDetailPage = () => {
   const { store } = useStore();
   return (
-    <WithAppbar linkColor={store.isMobile ? undefined : "#0b0b18"}>
+    <WithAppbar linkColor={store.isTablet ? undefined : "#0b0b18"}>
       <SneakerDetail />
     </WithAppbar>
   );

@@ -3,7 +3,7 @@ export const darkTheme = {
     'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;',
   colors: {
     bg: "#0b0b18",
-    secondaryBg: "#fdf84c",
+    secondaryBg: "#fef900",
     white: "#fff",
     cyan: "#25fcff",
     cyan010: "#272735",

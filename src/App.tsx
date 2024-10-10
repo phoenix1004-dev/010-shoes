@@ -7,6 +7,8 @@ import "react-indiana-drag-scroll/dist/style.css";
 import SneakerRoute from "routes/SneakerRoute";
 import AboutRoute from "routes/AboutRoute";
 import { CustomThemeProvider } from "contexts/CustomThemeContext";
+import PrivateRoute from "routes/PrivateRoute";
+import LoginPage from "pages/LoginPage";
 
 const NewsPage = lazy(() => import("pages/NewsPage"));
 const AboutPage = lazy(() => import("pages/AboutPage"));
@@ -31,15 +33,25 @@ function App() {
         <DialogProvider>
           <Suspense fallback={<div></div>}>
             <Routes>
-              <Route path="" element={<NewsPage />} />
-              <Route path="/about" element={<AboutRoute />}>
+              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path=""
+                element={<PrivateRoute element={<NewsPage />} />}
+              />
+              <Route
+                path="/about"
+                element={<PrivateRoute element={<AboutRoute />} />}
+              >
                 <Route path="" element={<AboutPage />} />
                 <Route path="main" element={<AboutMainPage />} />
                 <Route path="benefits" element={<BenefitsPage />} />
                 <Route path="team" element={<TeamsPage />} />
                 <Route path="faq" element={<FaqPage />} />
               </Route>
-              <Route path="/sneaker" element={<SneakerRoute />}>
+              <Route
+                path="/sneaker"
+                element={<PrivateRoute element={<SneakerRoute />} />}
+              >
                 <Route path="" element={<SneakerStart1Page />} />
                 <Route path="intro" element={<SneakerStart2Page />} />
                 <Route path="more" element={<SneakerMoreInfoPage />} />
@@ -48,14 +60,23 @@ function App() {
                 <Route path="detail" element={<SneakerDetailPage />} />
               </Route>
               <Route path="/roadmap">
-                <Route path="" element={<RoadmapPage />} />
+                <Route
+                  path=""
+                  element={<PrivateRoute element={<RoadmapPage />} />}
+                />
               </Route>
 
               <Route path="/mint">
-                <Route path="" element={<MintPage />} />
+                <Route
+                  path=""
+                  element={<PrivateRoute element={<MintPage />} />}
+                />
               </Route>
               <Route path="/press">
-                <Route path="" element={<PressPage />} />
+                <Route
+                  path=""
+                  element={<PrivateRoute element={<PressPage />} />}
+                />
               </Route>
             </Routes>
           </Suspense>

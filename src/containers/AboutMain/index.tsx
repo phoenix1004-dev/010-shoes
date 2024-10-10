@@ -5,13 +5,15 @@ import shoesImg from "assets/images/placeholder-shoes-dior.jpg";
 import whiteSneakerImg from "assets/images/placeholder-whitesneaker.jpg";
 import modelImg from "assets/images/placeholder-model.jpg";
 import { ScrollContainer } from "react-indiana-drag-scroll";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import useStore from "hooks/useStore";
+import { FiArrowRightCircle } from "react-icons/fi";
 
 const Root = styled.div`
   padding: 130px 0 130px 80px;
   display: flex;
   align-items: center;
+  overflow-x: "scroll";
   justify-content: flex-start;
   position: relative;
   @media ${device.tablet} {
@@ -139,8 +141,27 @@ const RightGradient = styled.div`
   }
 `;
 
+const StyledFiArrowRightCircle = styled(FiArrowRightCircle)`
+  position: fixed;
+  top: 80%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 100px;
+  opacity: 0.4;
+`;
+
 const AboutMain = () => {
   const { store } = useStore();
+  const [isShow, setIsShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    const toggleIcon = () => {
+      setIsShow(!isShow);
+    };
+
+    setTimeout(toggleIcon, 600);
+  }, [isShow]);
 
   const container = useMemo(() => {
     return (
@@ -225,7 +246,10 @@ const AboutMain = () => {
       {store.isTablet ? (
         container
       ) : (
-        <ScrollContainer>{container}</ScrollContainer>
+        <>
+          <ScrollContainer>{container}</ScrollContainer>
+          {!isShow && <StyledFiArrowRightCircle />}
+        </>
       )}
     </Root>
   );
