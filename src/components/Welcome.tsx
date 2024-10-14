@@ -36,6 +36,11 @@ const Text = styled.p`
 const Welcome = () => {
   const navigate = useNavigate();
 
+  const handleWelcome = () => {
+    sessionStorage.setItem("user", "2");
+    navigate("/");
+  };
+
   return (
     <Root>
       <Container>
@@ -43,7 +48,7 @@ const Welcome = () => {
         <Text>
           <Typewriter
             onInit={(Typewriter) => {
-              Typewriter.callFunction(() => navigate("/"));
+              Typewriter.callFunction(() => handleWelcome());
             }}
             options={{
               strings: "WELCOME TO O-TEN",

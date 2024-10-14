@@ -26,7 +26,7 @@ const LoginPage: FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (sessionStorage.getItem("user") === "1") {
+    if (sessionStorage.getItem("user") === "2") {
       navigate(-1);
     }
   });

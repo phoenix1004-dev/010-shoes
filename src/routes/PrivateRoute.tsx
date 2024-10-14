@@ -8,7 +8,7 @@ interface PrivateRouteProps {
 const PrivateRoute = ({ element }: PrivateRouteProps) => {
   // sessionStorage.clear();
   const isAuthenticated = sessionStorage.getItem("user");
-  return isAuthenticated === "1" ? element : <Navigate to="/login" />;
+  return isAuthenticated === "2" ? element : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;
