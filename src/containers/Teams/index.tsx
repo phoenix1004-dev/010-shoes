@@ -75,6 +75,29 @@ const RightGradient = styled.div`
   }
 `;
 
+const teams = [
+  {
+    name: "Thomas",
+    role: "The visionary entrepreneur",
+    desc: "Thomas is the creative mastermind and marketing specialist driving our project. With a sharp eye for innovation and a passion for disruptive ideas, he is the visionary leader who turns concepts into reality.",
+  },
+  {
+    name: "Stoned Ape Group",
+    role: "The NFT nerds",
+    desc: "The Stoned Ape Group are the NFT experts behind our digital strategy. Known for their deep knowledge of blockchain technology, they enrich our project with groundbreaking digital innovation.",
+  },
+  {
+    name: "Benny",
+    role: "The master of art",
+    desc: "Benny is our artistic genius, bringing each design to life with exceptional creativity. His craftsmanship ensures that 010 looks exactly as it should.",
+  },
+  {
+    name: "Tino",
+    role: "The fashion designer",
+    desc: "Tino is our fashion designer, straight from the ranks of Adidas. With a rich background in sneaker design, he combines style and functionality to create our unique footwear.",
+  },
+];
+
 const Teams = () => {
   const { store } = useStore();
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -102,18 +125,18 @@ const Teams = () => {
             }}
             option={{}}
           >
-            {new Array(8).fill(1).map((v, i) => {
+            {teams.map((v, i) => {
               return (
                 <MemberCard
                   key={`member-carousel-${i}`}
                   img={memberImg}
-                  name="Peter Aberdeen"
-                  desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                  name={v.name}
+                  desc={v.desc}
                   twitterUrl="https://twitter.com"
                   facebookUrl="https://facebook.com"
                   instagramUrl="https://instagram.com"
                   linkedInUrl="https://linkedin.com"
-                  role="Founder / CEO"
+                  role={v.role}
                 />
               );
             })}
@@ -122,13 +145,13 @@ const Teams = () => {
       ) : (
         <ScrollContainer style={{ width: "100%" }}>
           <Container>
-            {new Array(8).fill(1).map((v, i) => {
+            {teams.map((v, i) => {
               return (
                 <MemberCard
                   key={`member-${i}`}
                   img={memberImg}
-                  name="Peter Aberdeen"
-                  desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                  name={v.name}
+                  desc={v.desc}
                   twitterUrl="https://twitter.com"
                   facebookUrl="https://facebook.com"
                   instagramUrl="https://instagram.com"

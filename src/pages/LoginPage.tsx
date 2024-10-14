@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import styled from "styled-components";
 import image from "assets/images/intro-animation.gif";
 import Login from "components/Login";
+import { useNavigate } from "react-router-dom";
 
 const Root = styled.div`
   width: 100vw;
@@ -22,6 +23,14 @@ const ImgBox = styled.div`
 `;
 
 const LoginPage: FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (sessionStorage.getItem("user") === "1") {
+      navigate(-1);
+    }
+  });
+
   return (
     <Root>
       <ImgBox />

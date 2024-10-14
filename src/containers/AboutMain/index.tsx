@@ -170,45 +170,42 @@ const AboutMain = () => {
           <Part1>
             <PageMarker>About 010 [0-Ten]</PageMarker>
             <PageTitle className="part1-title">
-              This is an introductionary text for the brand.
+              When there’s blood on the streets, buy a shoe.
             </PageTitle>
             <Text className="part1-text">
-              Our love for sneakers grew over the years and so did our
-              expectations. We had enough of paying high-end prices for poorly
-              produced shoes somewhere on the other side of the planet, damaging
-              the environment and ruining the unique experience.
+              When the NFT bubble burst in 2022 and our collections lost value
+              overnight, we faced the same challenges as everyone else. But we
+              weren’t ready to sit back. Where others saw losses, we saw
+              opportunities.
               <br />
               <br />
-              So we creatd our own.
               <br />
               <br />
-              Meet O-TEN - the first ever NFT project on the Ethereum blockchain
-              that can be exchanged for a physical pair of luxury, Italian made
-              sneakers. The project simultaneously taps into two enduring
-              fixtures of youth life - cutting-edge technology and sneaker
-              fashion.
+              With our passion for sneakers and the drive to create something
+              sustainable, we built a brand that stands for more than just
+              products – it’s about community, identity, and belonging. We
+              invite you to be part of this movement.
             </Text>
           </Part1>
           <Img src={shoesImg} alt="" />
           <Part2>
-            <PageTitle>Another headline goes here.</PageTitle>
+            <PageTitle>A shoe that holds more than just a foot.</PageTitle>
             <TwoColumn>
               <Text>
-                At vero eos et accusamus et iusto odio dignissimos et ducimus
-                qui blanditiis praesentium voluptatum deleniti atque corrupti
-                quos dolores et quas molestias ut ipsa excepturi sint occaecati
-                cupiditate non provident, similique sunt in culpa qui officia
-                deserunt mollitia animi, id est laborum et dolorum fuga.
-                <br />
-                <br /> Ut aut reiciendis voluptatibus maiores alias consequatur
-                aut perferendis doloribus asperiores repellat.
+                It’s time to move beyond the basics of shoemaking and NFT 101
+                and create a truly innovative experience. 010 taps into two
+                lasting cornerstones of youth culture simultaneously –
+                cutting-edge technology and sneaker fashion. Our vision is
+                clear: to create a seamless bridge between the digital and
+                physical worlds. Because we know that NFTs are more than just
+                digital assets. They are a part of our daily lives.
               </Text>
               <Text>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                voluptas sit aspernatur aut odit aut fugit.
+                Our promises are as sustainable as our visions. We create
+                sneakers. Sneakers that transcend the digital space and become
+                an essential part of your everyday life. Our sneakers are as
+                unique as each of you – you can personalize your pair and make
+                it a true expression of your personality.
               </Text>
             </TwoColumn>
           </Part2>
@@ -218,21 +215,20 @@ const AboutMain = () => {
           </Part3>
           <Part4>
             <Text>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit sed ut perspiciatis unde omnis iste
-              natus error sit voluptatem accusantium doloremque laudantium,
-              totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-              quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-              ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+              **Step into the future: The world’s first true NFT sneaker
+              unveiled** We are proud to claim that we have created the first
+              true NFT sneaker. We are not just a brand – we are part of a
+              movement, driven by pioneers, innovators, and game-changers like
+              you. Join us, not just as a customer, but as a co-creator and
+              ambassador of our vision.
               <br />
-              <br />
-              At vero eos et accusamus et iusto odio dignissimos et ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias ut ipsa excepturi sint occaecati
-              cupiditate
+              <br />A sneaker as unique as you. We are far from finished. The
+              future holds more limited editions, personalized through NFTs,
+              making each pair of sneakers a one-of-a-kind item. The built-in
+              chip in all our sneakers is not just a symbol of authenticity –
+              it’s a gateway to experiences previously unimaginable. At 010, we
+              bring you the best of both worlds, and together we will write a
+              new chapter in the fashion world.
             </Text>
           </Part4>
         </HScroller>

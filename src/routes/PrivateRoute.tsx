@@ -6,8 +6,8 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ element }: PrivateRouteProps) => {
-  const isAuthenticated = localStorage.getItem("user");
-  console.log(isAuthenticated);
+  // sessionStorage.clear();
+  const isAuthenticated = sessionStorage.getItem("user");
   return isAuthenticated === "1" ? element : <Navigate to="/login" />;
 };
 

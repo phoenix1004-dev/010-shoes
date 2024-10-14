@@ -9,6 +9,7 @@ import AboutRoute from "routes/AboutRoute";
 import { CustomThemeProvider } from "contexts/CustomThemeContext";
 import PrivateRoute from "routes/PrivateRoute";
 import LoginPage from "pages/LoginPage";
+import WelcomePage from "pages/WelcomePage";
 
 const NewsPage = lazy(() => import("pages/NewsPage"));
 const AboutPage = lazy(() => import("pages/AboutPage"));
@@ -33,7 +34,14 @@ function App() {
         <DialogProvider>
           <Suspense fallback={<div></div>}>
             <Routes>
-              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/welcome"
+                element={<PrivateRoute element={<WelcomePage />} />}
+              />
+              <Route
+                path="/login"
+                element={<PrivateRoute element={<LoginPage />} />}
+              />
               <Route
                 path=""
                 element={<PrivateRoute element={<NewsPage />} />}

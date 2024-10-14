@@ -41,11 +41,10 @@ const AboutIntro = () => {
     <Root className="full">
       <LogoBg src={oxImg} alt="logo" />
       <Container>
-        <PageMarker>101 is yesterday's model</PageMarker>
+        <PageMarker>101 is the model of yesterday</PageMarker>
         <PageText>
-          <b>O-TEN</b> [010] is the first fashion brand that has its roots in
-          both the digital realm and the real world. Unconventional and
-          forward-thinking, we bring you the best of both worlds.
+          <b> 010 [O-TEN]</b> is the first fashion brand that unites the best of
+          both the digital and the real world.
         </PageText>
       </Container>
     </Root>
