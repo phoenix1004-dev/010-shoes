@@ -10,6 +10,7 @@ import { CustomThemeProvider } from "contexts/CustomThemeContext";
 import PrivateRoute from "routes/PrivateRoute";
 import LoginPage from "pages/LoginPage";
 import WelcomePage from "pages/WelcomePage";
+import HomePage from "pages/HomePage";
 
 const NewsPage = lazy(() => import("pages/NewsPage"));
 const AboutPage = lazy(() => import("pages/AboutPage"));
@@ -24,7 +25,7 @@ const SneakerDescPage = lazy(() => import("pages/SneakerDescPage"));
 const SneakerDetailPage = lazy(() => import("pages/SneakerDetailPage"));
 const MintPage = lazy(() => import("pages/MintPage"));
 const FaqPage = lazy(() => import("pages/FaqPage"));
-const PressPage = lazy(() => import("pages/PressPage"));
+// const PressPage = lazy(() => import("pages/PressPage"));
 const RoadmapPage = lazy(() => import("pages/RoadmapPage"));
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
             <Routes>
               <Route
                 path=""
-                element={<PrivateRoute element={<NewsPage />} />}
+                element={<PrivateRoute element={<HomePage />} />}
               />
               <Route path="/welcome" element={<WelcomePage />} />
               <Route path="/login" element={<LoginPage />} />
@@ -77,7 +78,7 @@ function App() {
               <Route path="/press">
                 <Route
                   path=""
-                  element={<PrivateRoute element={<PressPage />} />}
+                  element={<PrivateRoute element={<NewsPage />} />}
                 />
               </Route>
             </Routes>

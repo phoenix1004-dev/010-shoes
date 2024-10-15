@@ -24,7 +24,6 @@ const Root = styled.div`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 40% 60%;
-  grid-gap: 16px;
   flex-grow: 1;
 
   @media ${device.tablet} {

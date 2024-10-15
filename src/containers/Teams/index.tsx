@@ -26,9 +26,10 @@ const Root = styled.div`
 
 const Container = styled.div`
   display: inline-flex;
-  margin-top: 60px;
-  margin-right: 60px;
-  gap: 14px;
+  min-width: 100%;
+  height: calc(100% - 60px);
+  margin: 60px 60px 0px 20px;
+  gap: 24px;
 `;
 
 const SliderContainer = styled.div`
@@ -36,6 +37,7 @@ const SliderContainer = styled.div`
   overflow-y: auto;
   margin-top: 50px;
   width: 100%;
+  height: calc(100vh - 393px);
   @media ${device.mobile} {
     margin-top: 40px;
   }
@@ -51,7 +53,7 @@ const SliderContainer = styled.div`
 `;
 
 const StyledText = styled(Text)`
-  max-width: 380px;
+  max-width: 700px;
   margin-top: 60px;
   @media ${device.mobile} {
     margin-top: 30px;
@@ -143,7 +145,7 @@ const Teams = () => {
           </Carousel>
         </SliderContainer>
       ) : (
-        <ScrollContainer style={{ width: "100%" }}>
+        <ScrollContainer style={{ width: "100%", height: "100%" }}>
           <Container>
             {teams.map((v, i) => {
               return (
@@ -156,7 +158,7 @@ const Teams = () => {
                   facebookUrl="https://facebook.com"
                   instagramUrl="https://instagram.com"
                   linkedInUrl="https://linkedin.com"
-                  role="Founder / CEO"
+                  role={v.role}
                 />
               );
             })}

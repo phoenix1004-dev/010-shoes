@@ -13,7 +13,7 @@ const Root = styled.div`
 
 const Link = styled.a`
   font-size: 14px;
-  color: #fff;
+  color: ${(props) => props.theme.colors.text};
   opacity: 0.5;
   text-decoration: none;
   &:hover {

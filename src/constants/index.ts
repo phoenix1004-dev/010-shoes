@@ -1,9 +1,5 @@
 export const MENU_ITEMS = [
   {
-    label: "News",
-    url: "/",
-  },
-  {
     label: "About",
     url: "/about",
   },

@@ -1,4 +1,4 @@
-import { PageMarker, PageText } from "components/basic";
+import { PageMarker } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
 import oxImg from "assets/images/sneaker-intro-1.png";
@@ -35,6 +35,16 @@ const LogoBg = styled.img`
   }
 `;
 
+const PageText = styled.div`
+  font-size: 28px;
+  font-weight: 400;
+  color: ${(props) => props.theme.colors.white};
+
+  @media ${device.mobile} {
+    font-size: 22px;
+  }
+`;
+
 const SneakerStart2 = () => {
   return (
     <Root className="full">
@@ -42,11 +52,11 @@ const SneakerStart2 = () => {
       <Container>
         <PageMarker>Made with love</PageMarker>
         <PageText>
-          Our Blancs are a love letter to modern sneakers and made of the finest
-          materials.
-          <br /> You can either exchange it for a real pair of high-quality
-          Italian made sneakers in your size or enjoy benefits in the crypto
-          world.
+          Trends are invented by nerds, discovered by visionaries, and hyped by
+          the masses. The 010 OG Sneaker is the first in a new collection that
+          blends traditional craftsmanship with digital innovation. It is
+          designed for sneaker and NFT collectors, crypto enthusiasts, and trend
+          setters who love to be the first to adopt new trends.
         </PageText>
       </Container>
     </Root>

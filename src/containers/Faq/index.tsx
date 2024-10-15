@@ -1,4 +1,5 @@
 import Accordion from "components/Accordion";
+import ScrollContainer from "react-indiana-drag-scroll";
 import { styled } from "styled-components";
 import { device } from "utils/device";
 
@@ -17,24 +18,27 @@ const Root = styled.div`
 const StyledAccordion = styled(Accordion)`
   width: 100%;
   max-width: 700px;
+  height: calc(100vh - 260px);
 `;
 
 const Faq = () => {
   return (
     <Root className="full">
-      <StyledAccordion
-        data={faqs.map((d, index) => {
-          return {
-            ...d,
-            title: (
-              <span>
-                Q 0{index + 1}
-                <span style={{ marginLeft: 16 }}>{d.title}</span>
-              </span>
-            ),
-          };
-        })}
-      />
+      <ScrollContainer>
+        <StyledAccordion
+          data={faqs.map((d, index) => {
+            return {
+              ...d,
+              title: (
+                <span>
+                  Q 0{index + 1}
+                  <span style={{ marginLeft: 16 }}>{d.title}</span>
+                </span>
+              ),
+            };
+          })}
+        />
+      </ScrollContainer>
     </Root>
   );
 };

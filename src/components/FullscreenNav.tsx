@@ -34,7 +34,7 @@ const Link = styled(RouterLink)`
   position: relative;
   text-decoration: none;
   display: inline-block;
-  color: ${(props) => props.theme.colors.bg};
+  color: ${(props) => props.theme.colors.black};
 
   &:hover {
     color: ${(props) => props.theme.colors.cyan};
@@ -106,6 +106,7 @@ const StyledTitle = styled.p`
 
 const StyledSelect = styled.select`
   background: inherit;
+  color: black;
   border: none;
   margin: 0 10px;
   cursor: pointer;
@@ -166,7 +167,7 @@ const FullscreenNav: React.FC<Props> = ({ onClose }) => {
             </StyledSelect>
           </LanguageBar>
           <Clickable onClick={onClose}>
-            <CloseIcon width={16} height={16} fill={theme.colors.bg} />
+            <CloseIcon width={16} height={16} fill={theme.colors.black} />
           </Clickable>
         </FlexBox>
         <MenuContainer>

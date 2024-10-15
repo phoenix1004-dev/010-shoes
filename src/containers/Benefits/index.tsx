@@ -6,6 +6,7 @@ import BenefitCard from "./BenefitCard";
 import useStore from "hooks/useStore";
 import { Carousel } from "components/Carousel";
 import { useCallback, useState } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 const Root = styled.div`
   padding: 130px 80px;
@@ -28,13 +29,12 @@ const Root = styled.div`
 
 const Container = styled.div`
   display: grid;
-  grid-column-gap: 14px;
+  grid-column-gap: 30px;
   grid-row-gap: 60px;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(4, 1fr);
-  width: 100%;
+  grid-template-rows: repeat(1, 1fr);
+  grid-auto-flow: column;
+  width: max-content;
   margin-top: 10%;
-  max-width: 1200px;
 
   @media ${device.tablet} {
     grid-template-rows: repeat(2, 1fr);
@@ -47,6 +47,7 @@ const Container = styled.div`
 `;
 
 const SliderContainer = styled.div`
+  width: 100vw;
   overflow: hidden;
   margin-top: 50px;
   @media ${device.mobileS} {
@@ -85,28 +86,6 @@ const Benefits = () => {
     setSelectedIndex(index);
   }, []);
 
-  const showMobileBenefits = () => {
-    const rows = [];
-
-    for (let i = 0; i < benefits.length; i += 2) {
-      if (i + 1 < benefits.length) {
-        rows.push(
-          <MobileContainer key={`benefit-carousel-${i}`}>
-            <BenefitCard img={benefitImg} text={benefits[i]} />
-            <BenefitCard img={benefitImg} text={benefits[i + 1]} />
-          </MobileContainer>
-        );
-      } else {
-        rows.push(
-          <MobileContainer key={`benefit-carousel-${i}`}>
-            <BenefitCard img={benefitImg} text={benefits[i]} />
-          </MobileContainer>
-        );
-      }
-    }
-    return rows;
-  };
-
   return (
     <Root className="full">
       <PageTitle>Benefits</PageTitle>
@@ -121,17 +100,23 @@ const Benefits = () => {
             }}
             option={{}}
           >
-            {showMobileBenefits()}
+            {benefits.map((v, i) => (
+              <MobileContainer key={`benefit-carousel-${i}`}>
+                <BenefitCard img={benefitImg} text={v} />
+              </MobileContainer>
+            ))}
           </Carousel>
         </SliderContainer>
       ) : (
-        <Container>
-          {benefits.map((v, i) => {
-            return (
-              <BenefitCard key={`benefit-${i}`} img={benefitImg} text={v} />
-            );
-          })}
-        </Container>
+        <div className="w-full">
+          <ScrollContainer>
+            <Container>
+              {benefits.map((v, i) => (
+                <BenefitCard key={`benefit-${i}`} img={benefitImg} text={v} />
+              ))}
+            </Container>
+          </ScrollContainer>
+        </div>
       )}
     </Root>
   );

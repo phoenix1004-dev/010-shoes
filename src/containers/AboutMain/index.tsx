@@ -16,6 +16,9 @@ const Root = styled.div`
   overflow-x: "scroll";
   justify-content: flex-start;
   position: relative;
+  & .text-area {
+    min-width: 432px;
+  }
   @media ${device.tablet} {
     padding: 94px 58px;
   }
@@ -68,7 +71,9 @@ const Part1 = styled.div`
   }
 `;
 
-const Img = styled.img``;
+const Img = styled.img`
+  height: calc(100vh - 260px);
+`;
 
 const Part2 = styled.div`
   display: flex;
@@ -98,9 +103,9 @@ const Part3 = styled.div`
   display: grid;
   grid-gap: 14px;
   grid-template-columns: repeat(2, 1fr);
-  img {
-    height: 100%;
-  }
+  // img {
+  //   height: 100%;
+  // }
   @media ${device.tablet} {
     grid-gap: 12px;
     grid-template-columns: repeat(1, 1fr);
@@ -167,7 +172,7 @@ const AboutMain = () => {
     return (
       <>
         <HScroller>
-          <Part1>
+          <Part1 className={store.isTablet ? "" : "text-area"}>
             <PageMarker>About 010 [0-Ten]</PageMarker>
             <PageTitle className="part1-title">
               When there’s blood on the streets, buy a shoe.
@@ -177,8 +182,6 @@ const AboutMain = () => {
               overnight, we faced the same challenges as everyone else. But we
               weren’t ready to sit back. Where others saw losses, we saw
               opportunities.
-              <br />
-              <br />
               <br />
               <br />
               With our passion for sneakers and the drive to create something
@@ -235,7 +238,7 @@ const AboutMain = () => {
         <RightGradient />
       </>
     );
-  }, []);
+  }, [store]);
 
   return (
     <Root className="full">

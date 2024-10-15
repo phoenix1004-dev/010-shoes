@@ -38,7 +38,7 @@ const Login: FC = () => {
   const navigate = useNavigate();
 
   const handleComplete = () => {
-    sessionStorage.setItem("user", "1");
+    localStorage.setItem("user", "1");
     navigate("/welcome");
   };
 

@@ -3,6 +3,8 @@ import { device } from "utils/device";
 import productImg1 from "assets/images/top-view.jpg";
 import productImg2 from "assets/images/detail.jpg";
 import productImg3 from "assets/images/detail2.jpg";
+import useStore from "hooks/useStore";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 const Root = styled.div`
   padding: 130px 80px;
@@ -33,19 +35,33 @@ const Container = styled.div`
 
 const ProductImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 260px);
   max-height: 800px;
   object-fit: contain;
+
+  @media ${device.mobile} {
+    height: 100%;
+  }
 `;
 
 const SneakerGallery = () => {
+  const { store } = useStore();
+
   return (
     <Root className="full">
-      <Container>
-        <ProductImage src={productImg1} alt="product-image1" />
-        <ProductImage src={productImg2} alt="product-image2" />
-        <ProductImage src={productImg3} alt="product-image3" />
-      </Container>
+      {store.isTablet ? (
+        <ScrollContainer className="w-full h-full">
+          <ProductImage src={productImg1} alt="product-image1" />
+          <ProductImage src={productImg2} alt="product-image2" />
+          <ProductImage src={productImg3} alt="product-image3" />
+        </ScrollContainer>
+      ) : (
+        <Container>
+          <ProductImage src={productImg1} alt="product-image1" />
+          <ProductImage src={productImg2} alt="product-image2" />
+          <ProductImage src={productImg3} alt="product-image3" />
+        </Container>
+      )}
     </Root>
   );
 };

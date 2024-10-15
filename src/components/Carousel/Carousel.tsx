@@ -10,9 +10,11 @@ import styled from "styled-components";
 
 const Root = styled.div`
   position: relative;
+  height: 100%;
 
   .carousel__container {
     display: flex;
+    height: 100%;
   }
 
   .next-arrow {

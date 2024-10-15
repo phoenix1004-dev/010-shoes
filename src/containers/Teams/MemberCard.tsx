@@ -20,31 +20,44 @@ type Props = {
   role: string;
 };
 
-const Root = styled.div``;
-
-const Main = styled.div`
-  width: 340px;
+const Root = styled.div`
+  width: calc(100% / 4);
   min-width: 340px;
-  max-width: 100%;
-  height: 450px;
-  background: #e0dfe4;
-  position: relative;
+  display: flex;
+  align-items: center;
 
   @media ${device.mobileM} {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
+    width: min(100%, 340px);
+    min-width: min(100%, 340px);
   }
 
   @media ${device.mobile} {
-    height: 400px;
+    height: min(100%, 400px);
+  }
+`;
+
+const Main = styled.div`
+  min-width: 340px;
+  max-width: 100%;
+  height: 100%;
+  max-height: 700px;
+  position: relative;
+
+  @media ${device.mobileM} {
+    width: min(100%, 340px);
+    min-width: min(100%, 340px);
+  }
+
+  @media ${device.mobile} {
+    height: min(100%, 400px);
   }
 `;
 
 const Img = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: calc(100% - 62px);
+  object-fit: contain;
+  background: #e0dfe4;
 `;
 
 const Content = styled.div`
@@ -52,7 +65,7 @@ const Content = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 62px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -160,11 +173,11 @@ const MemberCard: React.FC<Props> = ({
             </div>
           </Content>
         )}
+        <Box marginTop="10px">
+          <BottomName>{name}</BottomName>
+          <RoleText>{role}</RoleText>
+        </Box>
       </Main>
-      <Box marginTop="10px">
-        <BottomName>{name}</BottomName>
-        <RoleText>{role}</RoleText>
-      </Box>
     </Root>
   );
 };
