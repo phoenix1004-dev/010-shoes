@@ -8,7 +8,7 @@ const Root = styled.div`
   padding: 130px 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   position: relative;
   @media ${device.tablet} {
     padding: 74px 28px;
@@ -19,8 +19,9 @@ const Root = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 38px;
-  width: 70%;
+  width: 100%;
 `;
 
 const LogoBg = styled.img`
@@ -32,12 +33,14 @@ const LogoBg = styled.img`
   width: 55%;
   z-index: -1;
   @media ${device.mobile} {
-    width: 90%;
+    width: 80%;
   }
 `;
 
 const Logo = styled.img`
   height: 200px;
+  min-width: 300px;
+  opacity: 0.8;
   object-fit: cover;
 `;
 
