@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Root = styled.div`
   max-width: 500px;
+  min-width: 300px;
   width: 40%;
   max-height: 200px;
   height: 20%;

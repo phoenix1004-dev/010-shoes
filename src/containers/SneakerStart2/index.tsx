@@ -52,8 +52,8 @@ const SneakerStart2 = () => {
       <Container>
         <PageMarker>Made with love</PageMarker>
         <PageText>
-          Trends are invented by nerds, discovered by visionaries, and hyped by
-          the masses. The 010 OG Sneaker is the first in a new collection that
+          Trends are by nerds, discovered by visionaries, and hyped by the
+          masses. The 010 OG Sneaker is the first in a new collection that
           blends traditional craftsmanship with digital innovation. It is
           designed for sneaker and NFT collectors, crypto enthusiasts, and trend
           setters who love to be the first to adopt new trends.
