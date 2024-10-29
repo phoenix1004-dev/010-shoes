@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 import { device } from "utils/device";
 import { useState } from "react";
 import Timeline from "components/Timeline/Timeline";
+import ScrollContainer from "react-indiana-drag-scroll";
+import useStore from "hooks/useStore";
 
 const Root = styled.div`
   display: flex;
@@ -21,7 +23,11 @@ const Root = styled.div`
 
 const Container = styled.div`
   flex-grow: 1;
-  height: 100%;
+  height: 100vh;
+
+  @media ${device.mobile} {
+    height: 100%;
+  }
 
   @media ${device.tablet} {
     display: flex;
@@ -45,17 +51,33 @@ const TabContainer = styled.div`
 `;
 const Roadmap = () => {
   const [selected, setSelected] = useState<number | string>(1);
+  const { store } = useStore();
+
   return (
     <Root className="full">
-      <Container>
-        <TabContainer>
-          <Timeline
-            data={MOCK}
-            selected={selected}
-            onTabChange={(id) => setSelected(id)}
-          />
-        </TabContainer>
-      </Container>
+      {!store.isTablet ? (
+        <ScrollContainer>
+          <Container>
+            <TabContainer>
+              <Timeline
+                data={MOCK}
+                selected={selected}
+                onTabChange={(id) => setSelected(id)}
+              />
+            </TabContainer>
+          </Container>
+        </ScrollContainer>
+      ) : (
+        <Container>
+          <TabContainer>
+            <Timeline
+              data={MOCK}
+              selected={selected}
+              onTabChange={(id) => setSelected(id)}
+            />
+          </TabContainer>
+        </Container>
+      )}
     </Root>
   );
 };

@@ -6,9 +6,7 @@ import { device } from "utils/device";
 const Root = styled.div<{ width?: string | number; height?: string | number }>`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "100%"};
-  overflow-x: auto;
-  position: relative;
-  padding: 40px 0 40px 100px;
+  padding: 100px 0 100px 100px;
   &:before {
     content: "";
     position: absolute;

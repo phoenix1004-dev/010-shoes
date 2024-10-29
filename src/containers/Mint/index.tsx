@@ -110,12 +110,11 @@ const Part3 = styled.div`
 
 const RightGradient = styled.div`
   width: 180px;
-  height: calc(100% - 260px);
+  height: 100%;
   position: fixed;
-  z-inex: 100;
+  z-index: 100;
   right: 0;
-  top: 50vh;
-  transform: translate(0%, -50%);
+  top: 0;
   background: linear-gradient(
     89deg,
     rgba(0, 0, 0, 0.01) 25%,
@@ -132,52 +131,54 @@ const Mint = () => {
 
   const container = useMemo(() => {
     return (
-      <HScroller>
-        <Part1>
-          <PageMarker>Minting</PageMarker>
-          <PageTitle className="part1-title">
-            Getting them is part of the charm.
-          </PageTitle>
-          <Text className="part1-text">
-            At vero eos et accusamus et iusto odio dignissimos et ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias ut ipsa excepturi sint occaecati
-            cupiditate non provident, similique sunt in culpa qui officia
-            deserunt mollitia animi, id est laborum et dolorum fuga.
-            <br />
-            <br />
-            Ut aut reiciendis voluptatibus maiores alias consequatur aut
-            perferendis doloribus asperiores repellat.
-          </Text>
-        </Part1>
-        <Img src={shoesImg} alt="" />
-        <Part2>
-          <PageTitle>Another headline goes here.</PageTitle>
-          <TwoColumn>
-            <Text>
+      <>
+        <HScroller>
+          <Part1>
+            <PageMarker>Minting</PageMarker>
+            <PageTitle className="part1-title">
+              Getting them is part of the charm.
+            </PageTitle>
+            <Text className="part1-text">
               At vero eos et accusamus et iusto odio dignissimos et ducimus qui
               blanditiis praesentium voluptatum deleniti atque corrupti quos
               dolores et quas molestias ut ipsa excepturi sint occaecati
               cupiditate non provident, similique sunt in culpa qui officia
               deserunt mollitia animi, id est laborum et dolorum fuga.
               <br />
-              <br /> Ut aut reiciendis voluptatibus maiores alias consequatur
-              aut perferendis doloribus asperiores repellat.
+              <br />
+              Ut aut reiciendis voluptatibus maiores alias consequatur aut
+              perferendis doloribus asperiores repellat.
             </Text>
-            <Text>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit.
-            </Text>
-          </TwoColumn>
-        </Part2>
-        <Part3 style={{ gridGap: "14px" }}>
-          <Img src={whiteSneakerImg} alt="" />
-        </Part3>
+          </Part1>
+          <Img src={shoesImg} alt="" />
+          <Part2>
+            <PageTitle>Another headline goes here.</PageTitle>
+            <TwoColumn>
+              <Text>
+                At vero eos et accusamus et iusto odio dignissimos et ducimus
+                qui blanditiis praesentium voluptatum deleniti atque corrupti
+                quos dolores et quas molestias ut ipsa excepturi sint occaecati
+                cupiditate non provident, similique sunt in culpa qui officia
+                deserunt mollitia animi, id est laborum et dolorum fuga.
+                <br />
+                <br /> Ut aut reiciendis voluptatibus maiores alias consequatur
+                aut perferendis doloribus asperiores repellat.
+              </Text>
+              <Text>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                voluptas sit aspernatur aut odit aut fugit.
+              </Text>
+            </TwoColumn>
+          </Part2>
+          <Part3 style={{ gridGap: "14px" }}>
+            <Img src={whiteSneakerImg} alt="" />
+          </Part3>
+        </HScroller>
         <RightGradient />
-      </HScroller>
+      </>
     );
   }, []);
 
