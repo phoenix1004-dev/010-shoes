@@ -9,6 +9,7 @@ const Root = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  background: ${(props) => props.theme.colors.bg};
   @media ${device.tablet} {
     padding: 74px 28px;
     overflow: hidden;
@@ -24,12 +25,12 @@ const Container = styled.div`
 
 const LogoBg = styled.img`
   position: absolute;
+  height: calc(100% - 260px);
   left: 50%;
   top: 50%;
   opacity: 50%;
   transform: translate(-50%, -50%);
   width: 55%;
-  z-index: -1;
   @media ${device.mobile} {
     width: 90%;
   }
@@ -48,7 +49,7 @@ const PageText = styled.div`
 const SneakerStart2 = () => {
   return (
     <Root className="full">
-      <LogoBg src={oxImg} alt="logo" />
+      <LogoBg src={oxImg} alt="logo" style={{ width: "auto" }} />
       <Container>
         <PageMarker>Made with love</PageMarker>
         <PageText>

@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const urls = [
   "/about",
+  "/about/intro",
   "/about/main",
   "/about/benefits",
   "/about/team",

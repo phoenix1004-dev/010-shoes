@@ -8,6 +8,10 @@ export const MENU_ITEMS = [
     url: "/sneaker",
   },
   {
+    label: "Chip",
+    url: "/chip",
+  },
+  {
     label: "Mint",
     url: "/mint",
   },
@@ -16,8 +20,8 @@ export const MENU_ITEMS = [
     url: "/roadmap",
   },
   {
-    label: "Press",
-    url: "/press",
+    label: "News",
+    url: "/news",
   },
 ];
 

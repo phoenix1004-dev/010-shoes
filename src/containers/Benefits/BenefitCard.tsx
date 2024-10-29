@@ -11,6 +11,7 @@ const Root = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  cursor-event: none;
 `;
 
 const Img = styled.img`

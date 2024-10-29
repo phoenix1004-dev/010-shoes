@@ -25,7 +25,6 @@ const SneakerDescPage = lazy(() => import("pages/SneakerDescPage"));
 const SneakerDetailPage = lazy(() => import("pages/SneakerDetailPage"));
 const MintPage = lazy(() => import("pages/MintPage"));
 const FaqPage = lazy(() => import("pages/FaqPage"));
-// const PressPage = lazy(() => import("pages/PressPage"));
 const RoadmapPage = lazy(() => import("pages/RoadmapPage"));
 
 function App() {
@@ -45,7 +44,8 @@ function App() {
                 path="/about"
                 element={<PrivateRoute element={<AboutRoute />} />}
               >
-                <Route path="" element={<AboutPage />} />
+                <Route path="" element={<SneakerStart1Page />} />
+                <Route path="intro" element={<AboutPage />} />
                 <Route path="main" element={<AboutMainPage />} />
                 <Route path="benefits" element={<BenefitsPage />} />
                 <Route path="team" element={<TeamsPage />} />
@@ -55,9 +55,8 @@ function App() {
                 path="/sneaker"
                 element={<PrivateRoute element={<SneakerRoute />} />}
               >
-                <Route path="" element={<SneakerStart1Page />} />
-                <Route path="intro" element={<SneakerStart2Page />} />
-                <Route path="more" element={<SneakerMoreInfoPage />} />
+                <Route path="" element={<SneakerMoreInfoPage />} />
+                <Route path="more" element={<SneakerStart2Page />} />
                 <Route path="gallery" element={<SneakerGalleryPage />} />
                 <Route path="desc" element={<SneakerDescPage />} />
                 <Route path="detail" element={<SneakerDetailPage />} />
@@ -75,7 +74,7 @@ function App() {
                   element={<PrivateRoute element={<MintPage />} />}
                 />
               </Route>
-              <Route path="/press">
+              <Route path="/news">
                 <Route
                   path=""
                   element={<PrivateRoute element={<NewsPage />} />}

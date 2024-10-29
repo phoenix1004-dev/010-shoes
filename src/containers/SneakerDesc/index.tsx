@@ -76,7 +76,7 @@ const SneakerDesc = () => {
       <Container>
         <Left>
           <PageTitle className="left-title">
-            Carte Blanche - make theme your own
+            When there's blood on the streets, buy a shoe.
           </PageTitle>
           <Text className="left-text">
             This customizable NFT can be enjoyed both in the digital and

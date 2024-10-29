@@ -8,8 +8,8 @@ const Root = styled.div`
 `;
 
 const ImgBox = styled.div`
-  width: 40%;
-  height: 40%;
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 50%;
   left: 50%;

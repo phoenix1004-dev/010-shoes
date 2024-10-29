@@ -63,7 +63,7 @@ const StyledText = styled(Text)`
 const RightGradient = styled.div`
   width: 180px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   background: linear-gradient(

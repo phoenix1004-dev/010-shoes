@@ -25,7 +25,6 @@ const Root = styled.div`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-gap: 16px;
   flex-grow: 1;
   height: 100%;
 

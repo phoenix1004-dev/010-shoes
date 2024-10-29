@@ -75,17 +75,33 @@ const Content = styled.div`
   transform: scaleX(1);
   transform-origin: 0 50%;
   transition: transform 175ms ease-in-out;
+
+  @media ${device.mobileM} {
+    padding: 14px;
+  }
 `;
 
 const Name = styled.div`
   font-size: 24px;
   color: ${(props) => props.theme.colors.bg};
   font-weight: 600;
+
+  @media ${device.mobileM} {
+    font-size: 16px;
+  }
 `;
 
 const Desc = styled.div`
-  font-size: 16px;
+  font-size: 20px;
   color: ${(props) => props.theme.colors.bg};
+
+  @media ${device.mobileM} {
+    font-size: 13px;
+  }
+
+  @media ${device.mobile} {
+    font-size: 16px;
+  }
 `;
 
 const SocialIcon = styled.a`
@@ -148,7 +164,7 @@ const MemberCard: React.FC<Props> = ({
             </Name>
             <div>
               <Desc>{desc}</Desc>
-              <FlexBox alignItems="center" gap="12px" marginTop="24px">
+              <FlexBox alignItems="center" gap="12px" marginTop="20px">
                 {twitterUrl && (
                   <SocialIcon href={twitterUrl} target="_blank">
                     <FaTwitter />

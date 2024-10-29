@@ -37,8 +37,7 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const handleWelcome = () => {
-    localStorage.setItem("user", "2");
-    navigate("/");
+    navigate("/about");
   };
 
   return (

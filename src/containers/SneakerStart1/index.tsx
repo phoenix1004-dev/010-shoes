@@ -31,6 +31,7 @@ const LogoBg = styled.img`
   opacity: 50%;
   transform: translate(-50%, -50%);
   width: 55%;
+  height: calc(100% - 260px);
   z-index: -1;
   @media ${device.mobile} {
     width: 80%;

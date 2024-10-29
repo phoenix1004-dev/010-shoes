@@ -1,8 +1,9 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { FaDiscord } from "react-icons/fa6";
+import { FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { device } from "utils/device";
 
 const Root = styled.div`
   max-width: 500px;
@@ -11,11 +12,12 @@ const Root = styled.div`
   max-height: 200px;
   height: 20%;
   position: fixed;
-  bottom: 0%;
-  right: 0%;
+  bottom: 20px;
+  right: 0;
   background-color: white;
   display: flex;
-  margin: 40px;
+  margin: 20px;
+  padding: 20px;
 `;
 
 const Text = styled.p`
@@ -23,6 +25,11 @@ const Text = styled.p`
   color: black;
   padding: 20px;
   margin: auto 0;
+
+  @media ${device.mobile} {
+    font-size: 15px;
+    padding: 5px;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -47,9 +54,19 @@ const Login: FC = () => {
     <Root>
       <Text>Join the ONX family and get access to our page</Text>
       <ButtonGroup>
-        <FaDiscord size={30} cursor={"pointer"} onClick={handleComplete} />
+        <FaTwitter
+          size={30}
+          color="gray"
+          cursor={"pointer"}
+          onClick={handleComplete}
+        />
         <p style={{ margin: 0 }}>OR</p>
-        <MdEmail size={30} cursor={"pointer"} onClick={handleComplete} />
+        <MdEmail
+          size={30}
+          color="gray"
+          cursor={"pointer"}
+          onClick={handleComplete}
+        />
       </ButtonGroup>
     </Root>
   );

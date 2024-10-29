@@ -32,7 +32,9 @@ const Faq = () => {
               title: (
                 <span>
                   Q 0{index + 1}
-                  <span style={{ marginLeft: 16 }}>{d.title}</span>
+                  <span style={{ marginLeft: 16, marginRight: 16 }}>
+                    {d.title}
+                  </span>
                 </span>
               ),
             };

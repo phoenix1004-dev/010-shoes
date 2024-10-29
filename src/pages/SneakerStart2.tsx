@@ -3,7 +3,7 @@ import WithAppbar from "layouts/WithAppbar";
 
 const SneakerStart2Page = () => {
   return (
-    <WithAppbar>
+    <WithAppbar theme="light">
       <SneakerStart2 />
     </WithAppbar>
   );
