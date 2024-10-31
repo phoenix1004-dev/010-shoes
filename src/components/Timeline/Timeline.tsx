@@ -21,7 +21,7 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
   @media ${device.mobile} {
     overflow-x: unset;
     display: block;
-    padding: 40px 0;
+    padding: 40px 0 0 0;
     &:before {
       content: "";
       position: absolute;

@@ -9,6 +9,7 @@ const Root = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+
   @media ${device.tablet} {
     padding: 74px 28px;
     overflow: hidden;
@@ -20,6 +21,10 @@ const Container = styled.div`
   flex-direction: column;
   gap: 38px;
   width: 70%;
+
+  @media ${device.tablet} {
+    width: auto;
+  }
 `;
 
 const LogoBg = styled.img`
@@ -32,7 +37,6 @@ const LogoBg = styled.img`
 
   @media ${device.mobile} {
     width: 280%;
-    transform: translate(-10%, -50%);
   }
 `;
 

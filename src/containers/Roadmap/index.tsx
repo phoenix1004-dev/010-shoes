@@ -6,24 +6,25 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import useStore from "hooks/useStore";
 
 const Root = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   position: relative;
   background: ${(props) => props.theme.colors.bg};
   @media ${device.tablet} {
-    padding: 94px 0;
+    padding: 94px 0 0 0;
     overflow: auto;
   }
   @media ${device.mobile} {
-    padding: 94px 0;
+    padding: 94px 0 0 0;
     overflow: auto;
   }
 `;
 
 const Container = styled.div`
   flex-grow: 1;
-  height: 100vh;
+  // height: 100vh;
 
   @media ${device.mobile} {
     height: 100%;
@@ -54,7 +55,7 @@ const Roadmap = () => {
   const { store } = useStore();
 
   return (
-    <Root className="full">
+    <Root>
       {!store.isTablet ? (
         <ScrollContainer>
           <Container>

@@ -171,7 +171,7 @@ const NewsPage = () => {
 
   return (
     <WithAppbar theme="light">
-      <Root className="full">
+      <Root>
         <Container>
           <Gallery>
             <div className="gallery-1">

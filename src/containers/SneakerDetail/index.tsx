@@ -50,7 +50,7 @@ const Left = styled.div`
 const Right = styled.div`
   background-color: #fff;
   color: #0b0b18;
-  padding: 40px;
+  padding: 130px 40px 40px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,7 +63,7 @@ const Right = styled.div`
 
 const Img = styled.img`
   width: 70%;
-  max-height: 70%;
+  max-height: calc(50vh - 130px);
   object-fit: contain;
 `;
 

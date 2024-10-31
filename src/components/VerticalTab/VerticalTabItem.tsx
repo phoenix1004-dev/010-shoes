@@ -66,10 +66,15 @@ const Line = styled.div<{ selected?: boolean }>`
 `;
 
 const Text = styled.div<{ selected?: boolean }>`
+  max-width: 200px;
   font-size: 16px;
   color: ${(props) =>
     props.selected ? props.theme.colors.cyan : props.theme.colors.grey};
-  text-wrap: nowrap;
+  // text-wrap: nowrap;
+
+  @media (min-width: 1400px) {
+    text-wrap: nowrap;
+  }
 `;
 
 type Props = {

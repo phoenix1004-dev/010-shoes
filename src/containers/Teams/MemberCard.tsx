@@ -95,12 +95,12 @@ const Desc = styled.div`
   font-size: 20px;
   color: ${(props) => props.theme.colors.bg};
 
-  @media ${device.mobileM} {
-    font-size: 13px;
+  @media ${device.tablet} {
+    font-size: 16px;
   }
 
-  @media ${device.mobile} {
-    font-size: 16px;
+  @media ${device.mobileM} {
+    font-size: 13px;
   }
 `;
 
