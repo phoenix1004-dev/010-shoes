@@ -6,11 +6,13 @@ import img3 from "assets/images/placeholder-shoe-casasport.jpg";
 import img4 from "assets/images/placeholder-shoes-dior.jpg";
 import YellowPane from "components/YellowPane";
 import { device } from "utils/device";
+import { useEffect, useState } from "react";
 
 const Root = styled.div`
   padding: 130px 80px;
   display: flex;
   flex-direction: column;
+  background: ${(props) => props.theme.colors.bg};
 
   @media ${device.tablet} {
     padding: 74px 28px;
@@ -137,13 +139,38 @@ const Container = styled.div`
 `;
 
 const Text = styled.div`
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.bg};
   font-weight: 600;
 `;
 
 const NewsPage = () => {
+  const [day, setDay] = useState<number>(100);
+  const [hour, setHour] = useState<number>(20);
+  const [minute, setMinute] = useState<number>(18);
+  const [second, setSecond] = useState<number>(42);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (second > 0) setSecond(second - 1);
+      else if (minute > 0) {
+        setMinute(minute - 1);
+        setSecond(59);
+      } else if (hour > 0) {
+        setHour(hour - 1);
+        setMinute(59);
+        setSecond(59);
+      } else if (day > 0) {
+        setDay(day - 1);
+        setHour(23);
+        setMinute(59);
+        setSecond(59);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [day, hour, minute, second]);
+
   return (
-    <WithAppbar>
+    <WithAppbar theme="light">
       <Root className="full">
         <Container>
           <Gallery>
@@ -163,10 +190,10 @@ const NewsPage = () => {
           </Gallery>
           <GridRow>
             <StyledYellowPane>
-              TIME UNTIL MINT: <span style={{ marginLeft: "20px" }}></span>100 :
-              20 : 18 : 42
+              TIME UNTIL MINT: <span style={{ marginLeft: "20px" }}></span>
+              {day} :{hour} : {minute} : {second}
             </StyledYellowPane>
-            <StyledYellowPane>An ethereum-based project</StyledYellowPane>
+            <StyledYellowPane>An solana-based project</StyledYellowPane>
             <StyledYellowPane>Older news articles</StyledYellowPane>
           </GridRow>
         </Container>

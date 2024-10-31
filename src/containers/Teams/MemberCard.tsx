@@ -154,12 +154,7 @@ const MemberCard: React.FC<Props> = ({
           <Content>
             <Name>
               {name.split(" ").map((nn) => {
-                return (
-                  <Fragment key={nn}>
-                    {nn}
-                    <br />
-                  </Fragment>
-                );
+                return <Fragment key={nn}>{nn} </Fragment>;
               })}
             </Name>
             <div>

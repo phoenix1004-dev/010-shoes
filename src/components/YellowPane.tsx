@@ -10,7 +10,7 @@ const Root = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.colors.bg};
+  color: ${(props) => props.theme.colors.black};
   font-size: 16px;
 `;
 

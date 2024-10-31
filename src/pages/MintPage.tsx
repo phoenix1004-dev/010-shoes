@@ -3,7 +3,7 @@ import WithAppbar from "layouts/WithAppbar";
 
 const MintPage = () => {
   return (
-    <WithAppbar>
+    <WithAppbar theme="light">
       <Mint />
     </WithAppbar>
   );

@@ -4,8 +4,9 @@ import { device } from "utils/device";
 import shoesImg from "assets/images/placeholder-shoes-dior.jpg";
 import whiteSneakerImg from "assets/images/placeholder-whitesneaker.jpg";
 import { ScrollContainer } from "react-indiana-drag-scroll";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import useStore from "hooks/useStore";
+import { AiOutlineDoubleRight } from "react-icons/ai";
 
 const Root = styled.div`
   padding: 130px 0 130px 80px;
@@ -13,6 +14,7 @@ const Root = styled.div`
   align-items: center;
   justify-content: flex-start;
   position: relative;
+  background: ${(props) => props.theme.colors.bg};
   @media ${device.tablet} {
     padding: 94px 58px;
   }
@@ -65,7 +67,9 @@ const Part1 = styled.div`
   }
 `;
 
-const Img = styled.img``;
+const Img = styled.img`
+  pointer-events: none;
+`;
 
 const Part2 = styled.div`
   display: flex;
@@ -92,42 +96,42 @@ const TwoColumn = styled.div`
 `;
 
 const Part3 = styled.div`
-  display: grid;
-  grid-gap: 14px;
-  grid-template-columns: repeat(2, 1fr);
-  img {
-    height: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  min-width: 30vw;
+  align-self: center;
+
   @media ${device.tablet} {
-    grid-gap: 12px;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    img {
-      width: 100%;
-    }
+    width: 100%;
+    min-width: unset;
   }
 `;
 
-const RightGradient = styled.div`
-  width: 180px;
-  height: 100%;
+const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
   position: fixed;
-  z-index: 100;
-  right: 0;
-  top: 0;
-  background: linear-gradient(
-    89deg,
-    rgba(0, 0, 0, 0.01) 25%,
-    rgba(0, 0, 0, 0.8) 75%
-  );
+  top: 80%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 100px;
+`;
 
-  @media ${device.tablet} {
-    display: none;
-  }
+const MR = styled.div`
+  margin-top: 50px;
 `;
 
 const Mint = () => {
   const { store } = useStore();
+  const [isShow, setIsShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    const toggleIcon = () => {
+      setIsShow(!isShow);
+    };
+
+    setTimeout(toggleIcon, 600);
+  }, [isShow]);
 
   const container = useMemo(() => {
     return (
@@ -136,48 +140,111 @@ const Mint = () => {
           <Part1>
             <PageMarker>Minting</PageMarker>
             <PageTitle className="part1-title">
-              Getting them is part of the charm.
+              010 NFT-Sneaker Minting – Exclusive and Unique
             </PageTitle>
             <Text className="part1-text">
-              At vero eos et accusamus et iusto odio dignissimos et ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias ut ipsa excepturi sint occaecati
-              cupiditate non provident, similique sunt in culpa qui officia
-              deserunt mollitia animi, id est laborum et dolorum fuga.
-              <br />
-              <br />
-              Ut aut reiciendis voluptatibus maiores alias consequatur aut
-              perferendis doloribus asperiores repellat.
+              Welcome to the exclusive minting of our 010 NFT-Sneaker collection
+              – a groundbreaking fusion of digital artwork and physical
+              sneakers. This collection represents not only the future of
+              sneaker design but also the potential of blockchain technology in
+              the fashion world.
             </Text>
           </Part1>
           <Img src={shoesImg} alt="" />
+          <Part3>
+            <PageTitle>Project and Sneaker Details</PageTitle>
+            <MR />
+            <Text>
+              Our 010 collection stands out with its unique blend of digital
+              design and physical shoes. Each sneaker is meticulously designed
+              and can be acquired both as a digital NFT and as a real shoe. The
+              collection comprises a total of 10,000 NFTs, with some exclusive
+              pieces in the collection and the rest of the sneakers being white.
+              These different rarity levels make each NFT a valuable collector’s
+              item.
+            </Text>
+          </Part3>
+          <Img src={whiteSneakerImg} alt="" />
           <Part2>
-            <PageTitle>Another headline goes here.</PageTitle>
+            <PageTitle>Project and Sneaker Details</PageTitle>
             <TwoColumn>
               <Text>
-                At vero eos et accusamus et iusto odio dignissimos et ducimus
-                qui blanditiis praesentium voluptatum deleniti atque corrupti
-                quos dolores et quas molestias ut ipsa excepturi sint occaecati
-                cupiditate non provident, similique sunt in culpa qui officia
-                deserunt mollitia animi, id est laborum et dolorum fuga.
-                <br />
-                <br /> Ut aut reiciendis voluptatibus maiores alias consequatur
-                aut perferendis doloribus asperiores repellat.
+                Our 010 collection stands out with its unique blend of digital
+                design and physical shoes. Each sneaker is meticulously designed
+                and can be acquired both as a digital NFT and as a real shoe.
+                The collection comprises a total of 10,000 NFTs, with some
+                exclusive pieces in the collection and the rest of the sneakers
+                being white. These different rarity levels make each NFT a
+                valuable collector’s item.
               </Text>
               <Text>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                voluptas sit aspernatur aut odit aut fugit.
+                Our 010 collection stands out with its unique blend of digital
+                design and physical shoes. Each sneaker is meticulously designed
+                and can be acquired both as a digital NFT and as a real shoe.
+                The collection comprises a total of 10,000 NFTs, with some
+                exclusive pieces in the collection and the rest of the sneakers
+                being white. These different rarity levels make each NFT a
+                valuable collector’s item.
               </Text>
             </TwoColumn>
           </Part2>
-          <Part3 style={{ gridGap: "14px" }}>
-            <Img src={whiteSneakerImg} alt="" />
+          <Img src={whiteSneakerImg} alt="" />
+          <Part3>
+            <PageTitle>Artistic and Creative Aspects</PageTitle>
+            <MR />
+            <Text>
+              The design of the NFT sneakers comes from our talented in-house
+              design team, known for their innovative approaches and deep
+              understanding of sneaker culture. Each NFT is not only a digital
+              artwork but can also be redeemed for a physical sneaker. When
+              redeemed, the NFT is burned, increasing its rarity in the digital
+              space. After minting, you also have the option to customize your
+              sneaker in the configurator and purchase additional colors. These
+              customizations can be transferred to the physical sneaker,
+              including personalizations like initials and special design
+              elements. The customizer will be available after the mint.
+            </Text>
+          </Part3>
+          <Img src={whiteSneakerImg} alt="" />
+          <Part3>
+            <PageTitle>Sales and Purchase Details</PageTitle>
+            <MR />
+            <Text>
+              The minting is scheduled for between December 2024 till Q1 2025.
+              The price for each NFT is 489 USDT, payable in Solana. The
+              purchase is limited: regular whitelist members can mint one
+              sneaker, super whitelist members can mint up to two, and ultra
+              whitelist members can mint up to three. The pre-sale is exclusive
+              to partners like the Stone Ape Crew and includes 3,500 NFTs.
+            </Text>
+          </Part3>
+          <Img src={whiteSneakerImg} alt="" />
+          <Part3>
+            <PageTitle>User Experience and Community</PageTitle>
+            <MR />
+            <Text>
+              As a holder of a 010 NFT sneaker, you will become part of an
+              exclusive community with access to special content, events, and a
+              planned marketplace. Our goal is to continually develop the
+              project with the community, known as the “Game Changers.” Primary
+              communication will take place via Twitter, with a closed Discord
+              group added later.
+            </Text>
+          </Part3>
+          <Img src={whiteSneakerImg} alt="" />
+          <Part3 style={{ paddingRight: "30px" }}>
+            <PageTitle>Future Plans and Vision</PageTitle>
+            <MR />
+            <Text>
+              The 010 NFT sneaker collection is just the beginning. Future drops
+              and collaborations with other brands are already in the works. Our
+              long-term goal is to establish a sneaker brand – by the crypto
+              community, for the crypto community. This includes the
+              distribution of special sneakers in physical stores worldwide,
+              closing the gap between the digital and physical sneaker worlds.
+            </Text>
           </Part3>
         </HScroller>
-        <RightGradient />
       </>
     );
   }, []);
@@ -187,7 +254,10 @@ const Mint = () => {
       {store.isTablet ? (
         container
       ) : (
-        <ScrollContainer>{container}</ScrollContainer>
+        <>
+          <ScrollContainer>{container}</ScrollContainer>
+          {!isShow && <StyledAiOutlineDoubleRight color="#fef900" />}
+        </>
       )}
     </Root>
   );
