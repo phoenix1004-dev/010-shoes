@@ -24,7 +24,7 @@ const Root = styled.div`
 
 const Container = styled.div`
   flex-grow: 1;
-  // height: 100vh;
+  height: 100vh;
 
   @media ${device.mobile} {
     height: 100%;
