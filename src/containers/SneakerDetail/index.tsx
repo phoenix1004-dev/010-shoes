@@ -39,9 +39,11 @@ const Container = styled.div`
 
 const Left = styled.div`
   display: flex;
+  z-index: 9999;
   align-items: center;
   justify-content: center;
   width: 100%;
+
   @media ${device.mobile} {
     padding: 24px;
   }

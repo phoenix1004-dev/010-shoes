@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 const Root = styled.div`
   padding: 130px 80px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: ${(props) => props.theme.colors.bg};
@@ -133,8 +134,7 @@ const NewsBadge = styled(YellowPane)`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  flex: 1;
   position: relative;
 `;
 

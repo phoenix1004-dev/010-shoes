@@ -7,6 +7,8 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "100%"};
   padding: 100px 0 100px 100px;
+  display: flex;
+
   &:before {
     content: "";
     position: absolute;
@@ -16,7 +18,6 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
     left: 0;
     top: 50%;
   }
-  display: flex;
 
   @media ${device.mobile} {
     overflow-x: unset;

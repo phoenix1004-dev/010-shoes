@@ -25,6 +25,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 40% 60%;
   flex-grow: 1;
+  height: 100%;
 
   @media ${device.tablet} {
     display: flex;
@@ -94,7 +95,11 @@ const SneakerDesc = () => {
             customization, where colours & materials can be added step-by-step.
           </Text>
         </Left>
-        <FlexBox justifyContent="flex-start" alignItems="center">
+        <FlexBox
+          justifyContent="flex-start"
+          alignItems="center"
+          overflow="hidden"
+        >
           <Img src={shoesImg} alt="" />
         </FlexBox>
       </Container>

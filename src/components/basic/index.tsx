@@ -45,7 +45,7 @@ export const Text = styled.div`
 export const SmallText = styled.div`
   font-size: 12px;
   color: ${(props) => props.theme.colors.white};
-  line-height: 140%;
+  line-height: 180%;
 
   @media ${device.mobile} {
     font-size: 10px;

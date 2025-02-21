@@ -13,7 +13,6 @@ const Root = styled.div`
   position: relative;
   background: ${(props) => props.theme.colors.bg};
   @media ${device.tablet} {
-    padding: 94px 0 0 0;
     overflow: auto;
   }
   @media ${device.mobile} {
@@ -28,14 +27,6 @@ const Container = styled.div`
 
   @media ${device.mobile} {
     height: 100%;
-  }
-
-  @media ${device.tablet} {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    height: -webkit-fill-available;
   }
 `;
 
@@ -56,7 +47,7 @@ const Roadmap = () => {
 
   return (
     <Root>
-      {!store.isTablet ? (
+      {!store.isMobile ? (
         <ScrollContainer>
           <Container>
             <TabContainer>

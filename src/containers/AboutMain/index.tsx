@@ -5,9 +5,9 @@ import shoesImg from "assets/images/placeholder-shoes-dior.jpg";
 import whiteSneakerImg from "assets/images/placeholder-whitesneaker.jpg";
 import modelImg from "assets/images/placeholder-model.jpg";
 import { ScrollContainer } from "react-indiana-drag-scroll";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import useStore from "hooks/useStore";
-import { AiOutlineDoubleRight } from "react-icons/ai";
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
 const Root = styled.div`
   padding: 130px 80px;
@@ -30,9 +30,10 @@ const Root = styled.div`
 const HScroller = styled.div`
   position: relative;
   display: inline-flex;
-  gap: 90px;
+  gap: 80px;
   height: calc(100vh - 260px);
-  padding-right: 80px;
+  scrollbar-width: none;
+
   @media ${device.tablet} {
     flex-direction: column;
     overflow-x: hidden;
@@ -73,8 +74,19 @@ const Part1 = styled.div`
 `;
 
 const Img = styled.img`
+  flex: 1;
   height: calc(100vh - 260px);
   pointer-events: none;
+`;
+
+const ImgContainer = styled.div`
+  flex: 1;
+
+  @media ${device.tablet} {
+    width: 100%;
+    flex: none;
+    justify-items: center;
+  }
 `;
 
 const Part2 = styled.div`
@@ -102,26 +114,9 @@ const TwoColumn = styled.div`
 `;
 
 const Part3 = styled.div`
-  display: grid;
-  grid-gap: 14px;
-  grid-template-columns: repeat(2, 1fr);
-  img {
-    min-width: fit-content;
-  }
-  @media ${device.tablet} {
-    grid-gap: 12px;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    img {
-      width: 100%;
-    }
-  }
-`;
-
-const Part4 = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 50vw;
   min-width: 400px;
   align-self: center;
 
@@ -150,91 +145,226 @@ const RightGradient = styled.div`
 
 const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
   position: fixed;
-  top: 80%;
-  left: 90%;
+  bottom: 5%;
+  right: 0;
   transform: translate(-50%, -50%);
   z-index: 10000;
   font-size: 100px;
 `;
 
+const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
+  position: fixed;
+  bottom: 5%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 100px;
+`;
+
+const Section = styled.div`
+  width: calc(100vw - 160px);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+    width: calc(100vw - 116px);
+  }
+
+  @media ${device.mobile} {
+    width: calc(100vw - 56px);
+  }
+`;
+
 const AboutMain = () => {
   const { store } = useStore();
-  const [isShow, setIsShow] = useState<boolean>(false);
+  const [index, setIndex] = useState(0);
+  const divRef1 = useRef<HTMLDivElement | null>(null);
+  const divRef2 = useRef<HTMLDivElement | null>(null);
+  const divRef3 = useRef<HTMLDivElement | null>(null);
+
+  const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Update index based on which section is visible
+        if (entry.target === divRef1.current) {
+          setIndex(0);
+        } else if (entry.target === divRef2.current) {
+          setIndex(1);
+        } else if (entry.target === divRef3.current) {
+          setIndex(2);
+        }
+      }
+    });
+  };
 
   useEffect(() => {
-    const toggleIcon = () => {
-      setIsShow(!isShow);
-    };
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.5,
+    });
 
-    setTimeout(toggleIcon, 600);
-  }, [isShow]);
+    const ref1 = divRef1.current;
+    const ref2 = divRef2.current;
+    const ref3 = divRef3.current;
+
+    if (ref1) observer.observe(ref1);
+    if (ref2) observer.observe(ref2);
+    if (ref3) observer.observe(ref3);
+
+    return () => {
+      if (ref1) observer.unobserve(ref1);
+      if (ref2) observer.unobserve(ref2);
+      if (ref3) observer.unobserve(ref3);
+    };
+  }, []);
+
+  const onClickRight = () => {
+    switch (index + 1) {
+      case 0:
+        if (divRef1.current) {
+          divRef1.current.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+        break;
+
+      case 1:
+        if (divRef2.current) {
+          divRef2.current.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+        break;
+
+      default:
+        if (divRef3.current) {
+          divRef3.current.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+        break;
+    }
+    setIndex(index + 1);
+  };
+
+  const onClickLeft = () => {
+    switch (index - 1) {
+      case 0:
+        if (divRef1.current) {
+          divRef1.current.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+        break;
+
+      case 1:
+        if (divRef2.current) {
+          divRef2.current.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+        break;
+
+      default:
+        if (divRef3.current) {
+          divRef3.current.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+        break;
+    }
+    setIndex(index - 1);
+  };
 
   const container = useMemo(() => {
     return (
       <>
         <HScroller>
-          <Part1 className={store.isTablet ? "" : "text-area"}>
-            <PageMarker>About 010 [0-Ten]</PageMarker>
-            <PageTitle className="part1-title">
-              When there’s blood on the streets, buy a shoe.
-            </PageTitle>
-            <Text className="part1-text">
-              When the NFT bubble burst in 2022 and our collections lost value
-              overnight, we faced the same challenges as everyone else. But we
-              weren’t ready to sit back. Where others saw losses, we saw
-              opportunities.
-              <br />
-              <br />
-              With our passion for sneakers and the drive to create something
-              sustainable, we built a brand that stands for more than just
-              products – it’s about community, identity, and belonging. We
-              invite you to be part of this movement.
-            </Text>
-          </Part1>
-          <Img src={shoesImg} alt="shoes image" />
-          <Part2>
-            <PageTitle>A shoe that holds more than just a foot.</PageTitle>
-            <TwoColumn>
-              <Text>
-                It’s time to move beyond the basics of shoemaking and NFT 101
-                and create a truly innovative experience. 010 taps into two
-                lasting cornerstones of youth culture simultaneously –
-                cutting-edge technology and sneaker fashion. Our vision is
-                clear: to create a seamless bridge between the digital and
-                physical worlds. Because we know that NFTs are more than just
-                digital assets. They are a part of our daily lives.
+          <Section ref={divRef1}>
+            <Part1 className={store.isTablet ? "" : "text-area"}>
+              <PageMarker>About 010 [0-Ten]</PageMarker>
+              <PageTitle className="part1-title">
+                When there’s blood on the streets, buy a shoe.
+              </PageTitle>
+              <Text className="part1-text">
+                When the NFT bubble burst in 2022 and our collections lost value
+                overnight, we faced the same challenges as everyone else. But we
+                weren’t ready to sit back. Where others saw losses, we saw
+                opportunities.
+                <br />
+                <br />
+                With our passion for sneakers and the drive to create something
+                sustainable, we built a brand that stands for more than just
+                products – it’s about community, identity, and belonging. We
+                invite you to be part of this movement.
               </Text>
+            </Part1>
+            <ImgContainer className="justify-items-end">
+              <Img src={shoesImg} alt="shoes image" />
+            </ImgContainer>
+          </Section>
+          <Section ref={divRef2}>
+            <Part2>
+              <PageTitle>A shoe that holds more than just a foot.</PageTitle>
+              <TwoColumn>
+                <Text>
+                  It’s time to move beyond the basics of shoemaking and NFT 101
+                  and create a truly innovative experience. 010 taps into two
+                  lasting cornerstones of youth culture simultaneously –
+                  cutting-edge technology and sneaker fashion. Our vision is
+                  clear: to create a seamless bridge between the digital and
+                  physical worlds. Because we know that NFTs are more than just
+                  digital assets. They are a part of our daily lives.
+                </Text>
+                <Text>
+                  Our promises are as sustainable as our visions. We create
+                  sneakers. Sneakers that transcend the digital space and become
+                  an essential part of your everyday life. Our sneakers are as
+                  unique as each of you – you can personalize your pair and make
+                  it a true expression of your personality.
+                </Text>
+              </TwoColumn>
+            </Part2>
+            <ImgContainer className="justify-items-end">
+              <Img src={whiteSneakerImg} alt="white sneaker image" />
+            </ImgContainer>
+          </Section>
+          <Section ref={divRef3}>
+            <ImgContainer>
+              <Img src={modelImg} alt="model image" />
+            </ImgContainer>
+            <Part3>
               <Text>
-                Our promises are as sustainable as our visions. We create
-                sneakers. Sneakers that transcend the digital space and become
-                an essential part of your everyday life. Our sneakers are as
-                unique as each of you – you can personalize your pair and make
-                it a true expression of your personality.
+                **Step into the future: The world’s first true NFT sneaker
+                unveiled** We are proud to claim that we have created the first
+                true NFT sneaker. We are not just a brand – we are part of a
+                movement, driven by pioneers, innovators, and game-changers like
+                you. Join us, not just as a customer, but as a co-creator and
+                ambassador of our vision.
+                <br />
+                <br />A sneaker as unique as you. We are far from finished. The
+                future holds more limited editions, personalized through NFTs,
+                making each pair of sneakers a one-of-a-kind item. The built-in
+                chip in all our sneakers is not just a symbol of authenticity –
+                it’s a gateway to experiences previously unimaginable. At 010,
+                we bring you the best of both worlds, and together we will write
+                a new chapter in the fashion world.
               </Text>
-            </TwoColumn>
-          </Part2>
-          <Part3 style={{ gridGap: "14px" }}>
-            <Img src={whiteSneakerImg} alt="white sneaker image" />
-            <Img src={modelImg} alt="model image" />
-          </Part3>
-          <Part4>
-            <Text>
-              **Step into the future: The world’s first true NFT sneaker
-              unveiled** We are proud to claim that we have created the first
-              true NFT sneaker. We are not just a brand – we are part of a
-              movement, driven by pioneers, innovators, and game-changers like
-              you. Join us, not just as a customer, but as a co-creator and
-              ambassador of our vision.
-              <br />
-              <br />A sneaker as unique as you. We are far from finished. The
-              future holds more limited editions, personalized through NFTs,
-              making each pair of sneakers a one-of-a-kind item. The built-in
-              chip in all our sneakers is not just a symbol of authenticity –
-              it’s a gateway to experiences previously unimaginable. At 010, we
-              bring you the best of both worlds, and together we will write a
-              new chapter in the fashion world.
-            </Text>
-          </Part4>
+            </Part3>
+          </Section>
         </HScroller>
         <RightGradient />
       </>
@@ -248,7 +378,15 @@ const AboutMain = () => {
       ) : (
         <>
           <ScrollContainer>{container}</ScrollContainer>
-          {!isShow && <StyledAiOutlineDoubleRight color="#fef900" />}
+          {index !== 0 && (
+            <StyledAiOutlineDoubleLeft color="#fef900" onClick={onClickLeft} />
+          )}
+          {index !== 2 && (
+            <StyledAiOutlineDoubleRight
+              color="#fef900"
+              onClick={onClickRight}
+            />
+          )}
         </>
       )}
     </Root>

@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 import { device } from "utils/device";
-import productImg1 from "assets/images/top-view.jpg";
-import productImg2 from "assets/images/detail.jpg";
-import productImg3 from "assets/images/detail2.jpg";
+import productImg1 from "assets/images/top-view.png";
+import productImg2 from "assets/images/detail.png";
+import productImg3 from "assets/images/detail2.png";
 import useStore from "hooks/useStore";
 import ScrollContainer from "react-indiana-drag-scroll";
 
