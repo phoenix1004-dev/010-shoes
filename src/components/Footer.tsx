@@ -23,11 +23,11 @@ const Link = styled.a`
   }
 `;
 
-const SocialIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  color: white;
-`;
+// const SocialIcon = styled.img`
+//   width: 20px;
+//   height: 20px;
+//   color: white;
+// `;
 
 const Footer = () => {
   const { store } = useStore();
@@ -40,7 +40,7 @@ const Footer = () => {
         {SOCIAL_LINKS.map((link) => {
           return (
             <Link href={link.url} key={link.url} target="_blank">
-              <SocialIcon src={link.icon} alt={link.label} />
+              {/* <SocialIcon src={link.icon} alt={link.label} /> */}
               {link.label}
             </Link>
           );

@@ -8,8 +8,8 @@ const Root = styled.div`
   padding: 130px 80px;
   display: flex;
   align-items: center;
-  // justify-content: center;
   position: relative;
+
   @media ${device.tablet} {
     padding: 74px 28px;
     overflow: hidden;
@@ -22,6 +22,7 @@ const Container = styled.div`
   width: 100%;
   gap: 38px;
   width: 100%;
+  align-items: center;
 `;
 
 const LogoBg = styled.img`
@@ -30,9 +31,12 @@ const LogoBg = styled.img`
   top: 50%;
   opacity: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
-  height: calc(100% - 260px);
+  width: auto;
+  height: auto;
+  max-height: 60%;
+  aspect-ratio: 1/1;
   z-index: -1;
+
   @media ${device.mobile} {
     width: 80%;
   }
@@ -40,9 +44,15 @@ const LogoBg = styled.img`
 
 const Logo = styled.img`
   height: 200px;
+  width: 100%;
   min-width: 300px;
+  max-width: 1536px;
   opacity: 0.8;
   object-fit: cover;
+
+  @media ${device.mobile} {
+    height: 100px;
+  }
 `;
 
 const SneakerStart1 = () => {

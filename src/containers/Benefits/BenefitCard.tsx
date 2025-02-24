@@ -1,5 +1,6 @@
 import { Text } from "components/basic";
 import { styled } from "styled-components";
+import { forwardRef } from "react";
 
 type Props = {
   img: string;
@@ -25,13 +26,13 @@ const StyledText = styled(Text)`
   text-align: center;
 `;
 
-const BenefitCard: React.FC<Props> = ({ img, text }) => {
+const BenefitCard = forwardRef<HTMLDivElement, Props>(({ img, text }, ref) => {
   return (
-    <Root>
+    <Root ref={ref}>
       <Img src={img} alt="" />
       <StyledText>{text}</StyledText>
     </Root>
   );
-};
+});
 
 export default BenefitCard;

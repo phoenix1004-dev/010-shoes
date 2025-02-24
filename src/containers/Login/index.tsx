@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image from "assets/images/intro-animation.gif";
+import image from "assets/images/sneaker-intro-2.png";
 import Login from "components/Login";
 
 const Root = styled.div`

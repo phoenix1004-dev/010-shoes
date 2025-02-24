@@ -23,6 +23,7 @@ type Props = {
 const Root = styled.div`
   width: calc(100% / 4);
   min-width: 340px;
+  max-height: 500px;
   display: flex;
   align-items: center;
 

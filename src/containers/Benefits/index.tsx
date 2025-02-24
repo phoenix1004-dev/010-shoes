@@ -5,8 +5,9 @@ import benefitImg from "assets/images/benefit-placeholder.png";
 import BenefitCard from "./BenefitCard";
 import useStore from "hooks/useStore";
 import { Carousel } from "components/Carousel";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
 const Root = styled.div`
   padding: 130px 80px;
@@ -66,6 +67,24 @@ const MobileContainer = styled.div`
   }
 `;
 
+const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
+  position: fixed;
+  bottom: 5%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 100px;
+`;
+
+const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
+  position: fixed;
+  bottom: 5%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 100px;
+`;
+
 const benefits = [
   "**Uniqueness & Personalization**: Every sneaker is as unique as its wearer, thanks to customizable NFTs that allow you to personalize your sneakers, making them a true expression of your personality.",
   "**Seamless integration of digital and physical worlds**: 010 sneakers bridge the gap between the digital and real worlds, offering an innovative and immersive experience.",
@@ -81,10 +100,74 @@ const benefits = [
 const Benefits = () => {
   const { store } = useStore();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const initialSet = useRef(false);
+  const statusSet = useRef(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(0);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const handleCarousel = useCallback((index: number) => {
     setSelectedIndex(index);
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let lastObserved = -1;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const observedIndex = itemRefs.current.findIndex(
+              (el) => el === entry.target
+            );
+
+            if (observedIndex !== -1) {
+              lastObserved = observedIndex;
+            }
+          }
+        });
+        if (lastObserved === -1) return;
+        if (!initialSet.current) {
+          setEndIndex(lastObserved);
+          initialSet.current = true;
+        } else if (lastObserved > statusSet.current) {
+          setStartIndex((prev) => prev + 1);
+          setEndIndex((prev) => prev + 1);
+        } else if (lastObserved < statusSet.current) {
+          setStartIndex((prev) => prev - 1);
+          setEndIndex((prev) => prev - 1);
+        }
+        statusSet.current = lastObserved;
+      },
+      { threshold: 0.6 }
+    );
+
+    itemRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      itemRefs.current.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
+  const handleNext = () => {
+    if (endIndex === benefits.length - 1) return;
+    itemRefs.current[endIndex + 1]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "end",
+    });
+  };
+
+  const handlePrev = () => {
+    if (startIndex === 0) return;
+    itemRefs.current[startIndex - 1]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+    });
+  };
 
   return (
     <Root className="full">
@@ -102,20 +185,36 @@ const Benefits = () => {
           >
             {benefits.map((v, i) => (
               <MobileContainer key={`benefit-carousel-${i}`}>
-                <BenefitCard img={benefitImg} text={v} />
+                <BenefitCard
+                  img={benefitImg}
+                  text={v}
+                  ref={(el) => (itemRefs.current[i] = el)}
+                />
               </MobileContainer>
             ))}
           </Carousel>
         </SliderContainer>
       ) : (
-        <div className="w-full">
+        <div className="w-full relative">
           <ScrollContainer>
             <Container>
               {benefits.map((v, i) => (
-                <BenefitCard key={`benefit-${i}`} img={benefitImg} text={v} />
+                <BenefitCard
+                  key={`benefit-${i}`}
+                  img={benefitImg}
+                  text={v}
+                  ref={(el) => (itemRefs.current[i] = el)}
+                  data-id={i}
+                />
               ))}
             </Container>
           </ScrollContainer>
+          {startIndex !== 0 && (
+            <StyledAiOutlineDoubleLeft color="#fef900" onClick={handlePrev} />
+          )}
+          {endIndex !== benefits.length - 1 && (
+            <StyledAiOutlineDoubleRight color="#fef900" onClick={handleNext} />
+          )}
         </div>
       )}
     </Root>

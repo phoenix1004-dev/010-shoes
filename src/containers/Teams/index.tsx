@@ -9,7 +9,8 @@ import { useCallback, useState } from "react";
 import { ScrollContainer } from "react-indiana-drag-scroll";
 
 const Root = styled.div`
-  padding: 130px 0 130px 80px;
+  padding: 130px 0 0px 80px;
+  margin-bottom: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -29,6 +30,7 @@ const Container = styled.div`
   min-width: 100%;
   height: calc(100% - 60px);
   margin: 60px 60px 0px 20px;
+  align-items: center;
   gap: 24px;
 `;
 

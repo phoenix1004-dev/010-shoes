@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import image from "assets/images/intro-animation.gif";
+import image from "assets/images/sneaker-intro-2.png";
 import { useNavigate } from "react-router-dom";
 
 const Root = styled.div`
@@ -50,7 +50,7 @@ const Welcome = () => {
               Typewriter.callFunction(() => handleWelcome());
             }}
             options={{
-              strings: "WELCOME TO O-TEN",
+              strings: `<span style="font-size: 70px; font-weight: bold;">WELCOME</span> TO O-TEN`,
               cursor: "_",
               autoStart: true,
               loop: false,
