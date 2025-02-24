@@ -22,6 +22,7 @@ type Props = {
 
 const Root = styled.div`
   width: calc(100% / 4);
+  height: 100%;
   min-width: 340px;
   max-height: 500px;
   display: flex;

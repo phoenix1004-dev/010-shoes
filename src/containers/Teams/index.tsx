@@ -29,7 +29,7 @@ const Container = styled.div`
   display: inline-flex;
   min-width: 100%;
   height: calc(100% - 60px);
-  margin: 60px 60px 0px 20px;
+  margin: 60px 60px 10px 20px;
   align-items: center;
   gap: 24px;
 `;
@@ -56,7 +56,7 @@ const SliderContainer = styled.div`
 
 const StyledText = styled(Text)`
   max-width: 700px;
-  margin-top: 60px;
+  margin-top: 28px;
   @media ${device.mobile} {
     margin-top: 30px;
   }

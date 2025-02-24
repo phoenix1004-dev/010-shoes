@@ -70,10 +70,10 @@ const MobileContainer = styled.div`
 const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
   position: fixed;
   bottom: 5%;
-  right: 0;
+  right: 5%;
   transform: translate(-50%, -50%);
   z-index: 10000;
-  font-size: 100px;
+  font-size: 64px;
 `;
 
 const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
@@ -82,7 +82,7 @@ const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
   left: 10%;
   transform: translate(-50%, -50%);
   z-index: 10000;
-  font-size: 100px;
+  font-size: 64px;
 `;
 
 const benefits = [
