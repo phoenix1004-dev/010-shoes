@@ -9,10 +9,12 @@ const Root = styled.div`
 
 const ImgBox = styled.div`
   width: 100%;
-  height: 100%;
+  height: 70%;
+  max-height: 700px;
   position: fixed;
   top: 50%;
   left: 50%;
+  aspect-ratio: 1/1;
   transform: translate(-50%, -50%);
   background-image: url(${image});
   background-repeat: no-repeat;
