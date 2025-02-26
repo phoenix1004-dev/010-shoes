@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import image from "assets/images/sneaker-intro-2.png";
+import image from "assets/images/sneaker-intro-1.png";
 import { useNavigate } from "react-router-dom";
 
 const Root = styled.div`
@@ -20,8 +20,9 @@ const Container = styled.div`
 `;
 
 const ImgBox = styled.div`
-  width: 40vw;
+  width: 100vw;
   height: 40vh;
+  aspect-ratio: 1/1;
   background-image: url(${image});
   background-repeat: no-repeat;
   background-position: center;

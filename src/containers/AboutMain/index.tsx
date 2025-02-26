@@ -77,6 +77,12 @@ const Img = styled.img`
   flex: 1;
   height: calc(100vh - 260px);
   pointer-events: none;
+
+  @media ${device.tablet} {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
 `;
 
 const ImgContainer = styled.div`

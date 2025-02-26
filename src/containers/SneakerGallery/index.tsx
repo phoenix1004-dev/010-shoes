@@ -42,6 +42,7 @@ const ProductImage = styled.img`
   max-height: calc(100vh - 260px);
   aspect-ratio: 1/2;
   object-fit: cover;
+  pointer-events: none;
 
   @media ${device.mobile} {
     height: 100%;
