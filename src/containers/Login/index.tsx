@@ -31,6 +31,7 @@ const ImgBox = styled.div`
 const LogoBox = styled.div`
   width: 60%;
   height: 70%;
+  max-width: 900px;
   max-height: 700px;
   position: fixed;
   top: 50%;
