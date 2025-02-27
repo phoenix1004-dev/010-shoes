@@ -12,6 +12,7 @@ export const PageTitle = styled.div`
 `;
 
 export const PageMarker = styled.div`
+  width: 100%;
   font-size: 16px;
   font-weight: 600;
   color: ${(props) => props.theme.colors.cyan};

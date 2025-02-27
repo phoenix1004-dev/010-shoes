@@ -8,6 +8,8 @@ import productImg5 from "assets/images/detail4.png";
 import productImg6 from "assets/images/detail5.png";
 import useStore from "hooks/useStore";
 import ScrollContainer from "react-indiana-drag-scroll";
+import { useEffect, useRef, useState } from "react";
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
 const Root = styled.div`
   padding: 130px 80px;
@@ -49,31 +51,133 @@ const ProductImage = styled.img`
   }
 `;
 
+const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 64px;
+`;
+
+const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
+  position: fixed;
+  bottom: 5%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 64px;
+`;
+
+const images = [
+  productImg1,
+  productImg2,
+  productImg3,
+  productImg4,
+  productImg5,
+  productImg6,
+];
+
 const SneakerGallery = () => {
   const { store } = useStore();
+  const initialSet = useRef(false);
+  const statusSet = useRef(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(0);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let lastObserved = -1;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const observedIndex = itemRefs.current.findIndex(
+              (el) => el === entry.target
+            );
+
+            if (observedIndex !== -1) {
+              lastObserved = observedIndex;
+            }
+          }
+        });
+        if (lastObserved === -1) return;
+        if (!initialSet.current) {
+          setEndIndex(lastObserved);
+          initialSet.current = true;
+        } else if (lastObserved > statusSet.current) {
+          setStartIndex((prev) => prev + 1);
+          setEndIndex((prev) => prev + 1);
+        } else if (lastObserved < statusSet.current) {
+          setStartIndex((prev) => prev - 1);
+          setEndIndex((prev) => prev - 1);
+        }
+        statusSet.current = lastObserved;
+      },
+      { threshold: 0.6 }
+    );
+
+    itemRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      itemRefs.current.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
+  const handleNext = () => {
+    if (endIndex === images.length - 1) return;
+    itemRefs.current[endIndex + 1]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "end",
+    });
+  };
+
+  const handlePrev = () => {
+    if (startIndex === 0) return;
+    itemRefs.current[startIndex - 1]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+    });
+  };
 
   return (
     <Root className="full">
       {store.isTablet ? (
         <ScrollContainer className="w-full h-full">
-          <ProductImage src={productImg1} alt="product-image1" />
-          <ProductImage src={productImg2} alt="product-image2" />
-          <ProductImage src={productImg3} alt="product-image3" />
-          <ProductImage src={productImg4} alt="product-image1" />
-          <ProductImage src={productImg5} alt="product-image2" />
-          <ProductImage src={productImg6} alt="product-image3" />
+          {images.map((item, index) => (
+            <ProductImage
+              key={index}
+              src={item}
+              alt={`product-image${index}`}
+            />
+          ))}
         </ScrollContainer>
       ) : (
-        <ScrollContainer className="h-full">
-          <Container>
-            <ProductImage src={productImg1} alt="product-image1" />
-            <ProductImage src={productImg2} alt="product-image2" />
-            <ProductImage src={productImg3} alt="product-image3" />
-            <ProductImage src={productImg4} alt="product-image1" />
-            <ProductImage src={productImg5} alt="product-image2" />
-            <ProductImage src={productImg6} alt="product-image3" />
-          </Container>
-        </ScrollContainer>
+        <>
+          <ScrollContainer className="h-full">
+            <Container>
+              {images.map((item, index) => (
+                <ProductImage
+                  key={index}
+                  src={item}
+                  alt={`product-image${index}`}
+                  ref={(el) => (itemRefs.current[index] = el)}
+                />
+              ))}
+            </Container>
+          </ScrollContainer>
+          {startIndex !== 0 && (
+            <StyledAiOutlineDoubleLeft color="#fef900" onClick={handlePrev} />
+          )}
+          {endIndex !== images.length - 1 && (
+            <StyledAiOutlineDoubleRight color="#fef900" onClick={handleNext} />
+          )}
+        </>
       )}
     </Root>
   );

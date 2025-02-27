@@ -1,7 +1,7 @@
 import { SmallText } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
-import productImg from "assets/images/sneaker-intro-2.png";
+import productImg from "assets/images/sneaker-intro-3.png";
 import { Fragment } from "react";
 
 const Root = styled.div`

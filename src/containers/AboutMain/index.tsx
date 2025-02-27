@@ -47,7 +47,7 @@ const HScroller = styled.div`
 const Part1 = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  width: 40vw;
   min-width: 30vw;
   align-self: center;
 

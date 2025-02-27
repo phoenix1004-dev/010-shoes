@@ -1,7 +1,7 @@
 import { PageMarker } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
-import oxImg from "assets/images/sneaker-intro-1.png";
+import oxImg from "assets/images/sneaker-intro-4.png";
 
 const Root = styled.div`
   padding: 130px 80px;

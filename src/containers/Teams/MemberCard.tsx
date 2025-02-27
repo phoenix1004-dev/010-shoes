@@ -8,6 +8,7 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { device } from "utils/device";
+import { forwardRef } from "react";
 
 type Props = {
   img: string;
@@ -134,65 +135,70 @@ const RoleText = styled.div`
   }
 `;
 
-const MemberCard: React.FC<Props> = ({
-  img,
-  name,
-  desc,
-  twitterUrl,
-  facebookUrl,
-  instagramUrl,
-  linkedInUrl,
-  role,
-}) => {
-  const [isHovered, setHover] = useState<boolean>(false);
-  return (
-    <Root>
-      <Main
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <Img src={img} alt="" />
-        {isHovered && (
-          <Content>
-            <Name>
-              {name.split(" ").map((nn) => {
-                return <Fragment key={nn}>{nn} </Fragment>;
-              })}
-            </Name>
-            <div>
-              <Desc>{desc}</Desc>
-              <FlexBox alignItems="center" gap="12px" marginTop="20px">
-                {twitterUrl && (
-                  <SocialIcon href={twitterUrl} target="_blank">
-                    <FaTwitter />
-                  </SocialIcon>
-                )}
-                {facebookUrl && (
-                  <SocialIcon href={facebookUrl} target="_blank">
-                    <FaFacebookF />
-                  </SocialIcon>
-                )}
-                {instagramUrl && (
-                  <SocialIcon href={instagramUrl} target="_blank">
-                    <FaInstagram />
-                  </SocialIcon>
-                )}
-                {linkedInUrl && (
-                  <SocialIcon href={linkedInUrl} target="_blank">
-                    <FaLinkedinIn />
-                  </SocialIcon>
-                )}
-              </FlexBox>
-            </div>
-          </Content>
-        )}
-        <Box marginTop="10px">
-          <BottomName>{name}</BottomName>
-          <RoleText>{role}</RoleText>
-        </Box>
-      </Main>
-    </Root>
-  );
-};
+const MemberCard = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      img,
+      name,
+      desc,
+      twitterUrl,
+      facebookUrl,
+      instagramUrl,
+      linkedInUrl,
+      role,
+    },
+    ref
+  ) => {
+    const [isHovered, setHover] = useState<boolean>(false);
+    return (
+      <Root ref={ref}>
+        <Main
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          <Img src={img} alt="" />
+          {isHovered && (
+            <Content>
+              <Name>
+                {name.split(" ").map((nn) => {
+                  return <Fragment key={nn}>{nn} </Fragment>;
+                })}
+              </Name>
+              <div>
+                <Desc>{desc}</Desc>
+                <FlexBox alignItems="center" gap="12px" marginTop="20px">
+                  {twitterUrl && (
+                    <SocialIcon href={twitterUrl} target="_blank">
+                      <FaTwitter />
+                    </SocialIcon>
+                  )}
+                  {facebookUrl && (
+                    <SocialIcon href={facebookUrl} target="_blank">
+                      <FaFacebookF />
+                    </SocialIcon>
+                  )}
+                  {instagramUrl && (
+                    <SocialIcon href={instagramUrl} target="_blank">
+                      <FaInstagram />
+                    </SocialIcon>
+                  )}
+                  {linkedInUrl && (
+                    <SocialIcon href={linkedInUrl} target="_blank">
+                      <FaLinkedinIn />
+                    </SocialIcon>
+                  )}
+                </FlexBox>
+              </div>
+            </Content>
+          )}
+          <Box marginTop="10px">
+            <BottomName>{name}</BottomName>
+            <RoleText>{role}</RoleText>
+          </Box>
+        </Main>
+      </Root>
+    );
+  }
+);
 
 export default MemberCard;

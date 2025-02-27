@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
+import { FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { device } from "utils/device";
@@ -9,46 +10,21 @@ const Root = styled.div`
   min-width: 300px;
   width: 40%;
   max-height: 200px;
-  height: 30%;
+  height: 20%;
   position: fixed;
   bottom: 20px;
   right: 0;
   background-color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   margin: 20px;
-  padding: 40px 60px;
-
-  @media ${device.tablet} {
-    padding: 20px 40px;
-  }
-
-  @media ${device.mobileM} {
-    padding: 20px;
-    margin: 10px;
-  }
-`;
-
-const Header = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Content = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
-  gap: 10px;
+  padding: 20px;
 `;
 
 const Text = styled.p`
-  width: 60%;
+  width: 50%;
   color: black;
+  padding: 20px;
   margin: auto 0;
-  text-align: end;
 
   @media ${device.mobile} {
     font-size: 15px;
@@ -56,53 +32,133 @@ const Text = styled.p`
   }
 `;
 
-const EmailInput = styled.input`
-  width: inherit;
-  flex: 1;
-  border: none;
-  outline: none;
-  color: #808080;
+const ButtonGroup = styled.div`
+  width: 50%;
+  color: black;
+  padding: 20px;
+  margin: auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-const Submit = styled.p`
-  font-weight: 700;
-  color: black;
-  cursor: pointer;
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
+const PopupContainer = styled.div`
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: black;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+`;
+
+const Button = styled.button`
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   &:hover {
-    color: red;
+    background-color: #2563eb;
   }
 `;
 
-const Login: FC = () => {
-  const [email, setEmail] = useState<string>("");
+type EmailPopupProps = {
+  onClose: () => void;
+};
+
+const EmialPopup: FC<EmailPopupProps> = ({ onClose }) => {
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    console.log(email);
+  const handleComplete = () => {
     localStorage.setItem("user", "1");
     navigate("/welcome");
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+  const handleSubmit = () => {
+    alert(`Submitted email: ${email}`);
+    onClose();
+    handleComplete();
+  };
+
+  return (
+    <Overlay>
+      <PopupContainer>
+        <CloseButton onClick={onClose}>&times;</CloseButton>
+        <h2 className="text-xl font-bold mb-2">Welcome!</h2>
+        <p className="text-gray-600">Enter your email below:</p>
+        <Input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Button onClick={handleSubmit}>Submit</Button>
+      </PopupContainer>
+    </Overlay>
+  );
+};
+
+const Login: FC = () => {
+  const [isEmailPopup, setIsEmailPopup] = useState(false);
+  // const navigate = useNavigate();
+
+  const openEmailPopup = () => {
+    setIsEmailPopup(true);
+  };
+
+  const closeEmailPopup = () => {
+    setIsEmailPopup(false);
   };
 
   return (
     <Root>
-      <Header>
-        <MdEmail size={30} color="gray" cursor={"pointer"} />
-        <Text>Join the ONX family and get access to our page</Text>
-      </Header>
-      <Content>
-        <EmailInput
-          type="email"
-          placeholder="Your email"
-          value={email}
-          onChange={handleChange}
+      <Text>Join the ONX family and get access to our page</Text>
+      <ButtonGroup>
+        <FaTwitter size={30} color="gray" cursor={"pointer"} />
+        <p style={{ margin: 0 }}>OR</p>
+        <MdEmail
+          size={30}
+          color="gray"
+          cursor={"pointer"}
+          onClick={openEmailPopup}
         />
-        <Submit onClick={handleSubmit}>Submit</Submit>
-      </Content>
+      </ButtonGroup>
+      {isEmailPopup && <EmialPopup onClose={closeEmailPopup} />}
     </Root>
   );
 };

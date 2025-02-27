@@ -5,8 +5,9 @@ import memberImg from "assets/images/team-placeholder.jpg";
 import MemberCard from "./MemberCard";
 import useStore from "hooks/useStore";
 import { Carousel } from "components/Carousel";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ScrollContainer } from "react-indiana-drag-scroll";
+import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 
 const Root = styled.div`
   padding: 130px 0 0px 80px;
@@ -79,6 +80,24 @@ const RightGradient = styled.div`
   }
 `;
 
+const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 64px;
+`;
+
+const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
+  position: fixed;
+  bottom: 5%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  font-size: 64px;
+`;
+
 const teams = [
   {
     name: "Thomas",
@@ -104,11 +123,78 @@ const teams = [
 
 const Teams = () => {
   const { store } = useStore();
+  const initialSet = useRef(false);
+  const statusSet = useRef(0);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(0);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let lastObserved = -1;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const observedIndex = itemRefs.current.findIndex(
+              (el) => el === entry.target
+            );
+
+            if (observedIndex !== -1) {
+              lastObserved = observedIndex;
+            }
+          }
+        });
+        console.log("here->inner->", lastObserved);
+        if (lastObserved === -1) return;
+        if (!initialSet.current) {
+          setEndIndex(lastObserved);
+          initialSet.current = true;
+        } else if (lastObserved > statusSet.current) {
+          setStartIndex((prev) => prev + 1);
+          setEndIndex((prev) => prev + 1);
+        } else if (lastObserved < statusSet.current) {
+          setStartIndex((prev) => prev - 1);
+          setEndIndex((prev) => prev - 1);
+        }
+        statusSet.current = lastObserved;
+      },
+      { threshold: 0.6 }
+    );
+
+    itemRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      itemRefs.current.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
 
   const handleCarousel = useCallback((index: number) => {
     setSelectedIndex(index);
   }, []);
+
+  const handleNext = () => {
+    if (endIndex === teams.length - 1) return;
+    itemRefs.current[endIndex + 1]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "end",
+    });
+  };
+
+  const handlePrev = () => {
+    if (startIndex === 0) return;
+    itemRefs.current[startIndex - 1]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "start",
+    });
+  };
+
+  console.log("here->", startIndex, endIndex);
 
   return (
     <Root className="full">
@@ -147,26 +233,35 @@ const Teams = () => {
           </Carousel>
         </SliderContainer>
       ) : (
-        <ScrollContainer style={{ width: "100%", height: "100%" }}>
-          <Container>
-            {teams.map((v, i) => {
-              return (
-                <MemberCard
-                  key={`member-${i}`}
-                  img={memberImg}
-                  name={v.name}
-                  desc={v.desc}
-                  twitterUrl="https://twitter.com"
-                  facebookUrl="https://facebook.com"
-                  instagramUrl="https://instagram.com"
-                  linkedInUrl="https://linkedin.com"
-                  role={v.role}
-                />
-              );
-            })}
-          </Container>
-          <RightGradient />
-        </ScrollContainer>
+        <>
+          <ScrollContainer style={{ width: "100%", height: "100%" }}>
+            <Container>
+              {teams.map((v, i) => {
+                return (
+                  <MemberCard
+                    key={`member-${i}`}
+                    img={memberImg}
+                    name={v.name}
+                    desc={v.desc}
+                    twitterUrl="https://twitter.com"
+                    facebookUrl="https://facebook.com"
+                    instagramUrl="https://instagram.com"
+                    linkedInUrl="https://linkedin.com"
+                    role={v.role}
+                    ref={(el) => (itemRefs.current[i] = el)}
+                  />
+                );
+              })}
+            </Container>
+            <RightGradient />
+          </ScrollContainer>
+          {startIndex !== 0 && (
+            <StyledAiOutlineDoubleLeft color="#fef900" onClick={handlePrev} />
+          )}
+          {endIndex !== teams.length - 1 && (
+            <StyledAiOutlineDoubleRight color="#fef900" onClick={handleNext} />
+          )}
+        </>
       )}
     </Root>
   );

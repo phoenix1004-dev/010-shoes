@@ -56,7 +56,7 @@ const ExternalLink = styled.a`
   position: relative;
   text-decoration: none;
   display: inline-block;
-  color: ${(props) => props.theme.colors.bg};
+  color: ${(props) => props.theme.colors.black};
 
   &:hover {
     color: ${(props) => props.theme.colors.cyan};
