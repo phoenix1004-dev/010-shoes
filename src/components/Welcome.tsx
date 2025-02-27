@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import image from "assets/images/sneaker-intro-1.png";
+import image from "assets/images/sneaker-intro-4.png";
 import { useNavigate } from "react-router-dom";
 
 const Root = styled.div`

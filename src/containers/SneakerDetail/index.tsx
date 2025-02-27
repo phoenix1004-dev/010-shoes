@@ -1,7 +1,7 @@
 import { PageTitle, Text } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
-import shoesImg from "assets/images/sneaker-intro-2.png";
+import shoesImg from "assets/images/sneaker-intro-3.png";
 import { Box } from "components/basic/Box";
 import VerticalTab from "components/VerticalTab/VerticalTab";
 import { useState } from "react";

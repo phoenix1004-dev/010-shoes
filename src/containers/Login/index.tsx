@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image from "assets/images/sneaker-intro-1.png";
+import image from "assets/images/sneaker-intro-4.png";
 import logo from "assets/images/logo/Logo 010.png";
 import Login from "components/Login";
 import { device } from "utils/device";
@@ -10,7 +10,7 @@ const Root = styled.div`
 `;
 
 const ImgBox = styled.div`
-  width: 100%;
+  width: 70%;
   height: 70%;
   max-height: 700px;
   position: fixed;
@@ -24,6 +24,7 @@ const ImgBox = styled.div`
   background-size: contain, cover;
 
   @media ${device.mobile} {
+    width: 100%;
     max-width: 600px;
   }
 `;
