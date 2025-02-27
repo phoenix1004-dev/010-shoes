@@ -88,7 +88,7 @@ const SneakerMoreInfo = () => {
             Blance
           </Title>
           <InfoText style={{ textAlign: "right", marginTop: "12px" }}>
-            Designed by sos gray
+            DESIGNED BY TINOW VALENTINITSCH
           </InfoText>
         </TitleContainer>
       </Container>
@@ -99,9 +99,9 @@ const SneakerMoreInfo = () => {
 export default SneakerMoreInfo;
 
 const infos = [
-  "light-weight",
-  "Created for everyday use",
-  "Ultimate comfort",
-  "ECO-Friendly",
-  "Customizable",
+  "PREMIUM LEATHER",
+  "FULLY CUSTOMIZABLE",
+  "CREATED FOR EVERYDAY USE",
+  "ULTIMATE COMFORT",
+  "CRAFTED IN ITALY",
 ];

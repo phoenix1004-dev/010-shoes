@@ -56,7 +56,7 @@ const Part1 = styled.div`
   }
 
   & .part1-text {
-    margin-top: 84px;
+    margin-top: 64px;
   }
 
   @media ${device.tablet} {
@@ -306,16 +306,24 @@ const AboutMain = () => {
                 When there’s blood on the streets, buy a shoe.
               </PageTitle>
               <Text className="part1-text">
-                When the NFT bubble burst in 2022 and our collections lost value
-                overnight, we faced the same challenges as everyone else. But we
-                weren’t ready to sit back. Where others saw losses, we saw
-                opportunities.
+                When the NFT bubble burst in 2022 and the market shifted
+                overnight, we faced the same challenges as everyone else. While
+                others saw losses, we saw a shift, a new playing field waiting
+                to be redefined.
                 <br />
                 <br />
-                With our passion for sneakers and the drive to create something
-                sustainable, we built a brand that stands for more than just
-                products – it’s about community, identity, and belonging. We
-                invite you to be part of this movement.
+                Fueled by our passion for sneakers and the belief that fashion
+                should be more than just hype, we built something bigger. A
+                brand that merges digital innovation with real-world culture,
+                creating not just products, but a movement.
+                <br />
+                <br />
+                It’s about more than what you wear—it’s about identity,
+                community, and rewriting the rules. This is your invitation to
+                be part of the future.
+                <br />
+                <br />
+                Welcome to 010.
               </Text>
             </Part1>
             <ImgContainer className="justify-items-end">

@@ -60,7 +60,7 @@ const SneakerStart1 = () => {
     <Root className="full">
       <LogoBg src={oxImg} alt="logobg" />
       <Container>
-        <PageMarker>Made with love</PageMarker>
+        <PageMarker>FOR THE CREATORS</PageMarker>
         <Logo src={animatedLogo} alt="logo" />
       </Container>
     </Root>

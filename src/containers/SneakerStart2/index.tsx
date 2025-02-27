@@ -37,12 +37,12 @@ const LogoBg = styled.img`
 `;
 
 const PageText = styled.div`
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
   color: ${(props) => props.theme.colors.white};
 
   @media ${device.mobile} {
-    font-size: 22px;
+    font-size: 18px;
   }
 `;
 
@@ -53,11 +53,20 @@ const SneakerStart2 = () => {
       <Container>
         <PageMarker>Made with love</PageMarker>
         <PageText>
-          Trends are by nerds, discovered by visionaries, and hyped by the
-          masses. The 010 OG Sneaker is the first in a new collection that
-          blends traditional craftsmanship with digital innovation. It is
-          designed for sneaker and NFT collectors, crypto enthusiasts, and trend
-          setters who love to be the first to adopt new trends.
+          Trends start with innovators, are spotted by visionaries, and
+          amplified by the masses. The 010 OG Sneaker is more than a shoe—it’s a
+          statement. Handcrafted in Italy from the finest materials, it merges
+          luxury craftsmanship with cutting-edge technology. An embedded NFC
+          chip provides tamper-proof authenticity and unlocks exclusive digital
+          family-only experiences.
+          <br />
+          <br />
+          Designed for sneaker collectors, NFT pioneers, and crypto enthusiasts,
+          the 010 OG Sneaker is for those who don’t just chase trends—they
+          create them.
+          <br />
+          <br />
+          Exclusivity, innovation, and identity—this is 010.
         </PageText>
       </Container>
     </Root>

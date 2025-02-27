@@ -52,13 +52,13 @@ const faqs = [
     id: 1,
     title: "What is the 010 OG Sneaker?",
     content:
-      "The 010 OG Sneaker is the first sneaker from our exclusive collection, available both as a digital NFT and as a physical product. Made from premium leather, it combines minimalist design with innovative features, such as an embedded chip offering tamperproof authenticity certificates.",
+      "The 010 OG Sneaker is the first release from our exclusive collection—available both as a digital NFT and a physical product. Crafted in Italy from premium leather, it blends cutting-edge technology with minimalist timeless design. An embedded NFC chip ensures tamper-proof authenticity, bridging the gap between digital ownership and real-world luxury. More than just a sneaker, it’s a statement of innovation, exclusivity, and the future of fashion.",
   },
   {
     id: 2,
     title: "How can I buy the 010 OG Sneaker?",
     content:
-      "The 010 OG Sneaker is only available by owning an NFT. You can purchase the NFT on our minting platform or buy it on the secondary market. Once you own the NFT, you can exchange it for the physical sneaker, which will then be custom-produced for you.",
+      "The **010 OG Sneaker** is only available by owning an NFT. You can mint the NFT on our platform or secure it on the secondary market. Once you hold it, you can redeem it for the physical sneaker, custom-produced just for you in Italy.This is just the beginning. The **010 OG Sneaker** will soon be available through select collaborations, offering new ways to experience the brand. Stay tuned.",
   },
   {
     id: 3,
@@ -70,7 +70,7 @@ const faqs = [
     id: 4,
     title: "Can I personalize the sneaker?",
     content:
-      "Yes, you can personalize the 010 OG Sneaker using our configurator (witch will be online after the mint. Tba). You can customize round about 12 elements of the shoe in different colors. Additionally, you can add initials and other small details before the shoe is custom-produced for you.",
+      "Yes, you can make the **010 OG Sneaker** truly yours. With our nexrt-level configurator (launching after the mint, TBA), you control every detail—customizing multiple elements, selecting colors, and adding your initials or unique touches. Your sneaker. Your vision. Your journey. Once designed, it’s custom-made in Italy—exclusively for you.",
   },
   {
     id: 5,
@@ -112,14 +112,14 @@ const faqs = [
     id: 11,
     title: "What are the benefits of the built-in chip in the sneaker?",
     content:
-      "The built-in chip in the sneaker offers several benefits. In addition to the certificate of authenticity, it provides extra features after the NFT is exchanged. By holding your smartphone near the sneaker, you’ll be directed to an exclusive website where more features will be unlocked once you own the sneaker. More will be announced in the future.",
+      "The built-in chip in the ****sneaker unlocks more than just authenticity—it’s your gateway to the 010-Family. After the NFT is exchanged, the chip activates additional features. Simply hold your smartphone near the sneaker to access a private website, where new experiences await and more will be revealed over time. Once you're in, you're part of the journey.",
   },
   {
     id: 12,
     title:
       "Are there special editions or limited variants of the 010 OG Sneaker?",
     content:
-      "The sneaker is limited to a total of 10,000 units. Each sneaker is uniquely numbered and can be personalized with options like color selection and initials. To strengthen the brand and increase demand, further collaborations with other brands are planned. These will include special editions that cannot be customized and are not part of the 10,000-edition range.",
+      "The **010 OG Sneaker** is strictly limited to **10,000 units**, each uniquely numbered and fully customizable—from color selection to personal details like your initials. To elevate the brand further, we’re also launching exclusive collaborations with select partners. These special edition drops will be pre-designed with renowned Artists, non-customizable, and exist outside the 10,000-unit collection—offering a rare, collectible edge to those who secure them.",
   },
   {
     id: 13,

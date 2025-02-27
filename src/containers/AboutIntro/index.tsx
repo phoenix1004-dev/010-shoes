@@ -45,10 +45,10 @@ const AboutIntro = () => {
     <Root className="full">
       <LogoBg src={oxImg} alt="logo" />
       <Container>
-        <PageMarker>101 is the model of yesterday</PageMarker>
+        <PageMarker>A NEW ERA BEGINS</PageMarker>
         <PageText>
-          <b> 010 [O-TEN]</b> is the first fashion brand that unites the best of
-          both the digital and the real world.
+          <b> 010 [O-TEN]</b> is the first brand where fashion, tech and culture
+          merge. <br /> No limits. <b>Just the future</b>.
         </PageText>
       </Container>
     </Root>

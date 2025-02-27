@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
-import { FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { RiTwitterXFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { device } from "utils/device";
 
@@ -147,9 +147,9 @@ const Login: FC = () => {
 
   return (
     <Root>
-      <Text>Join the ONX family and get access to our page</Text>
+      <Text>Onyx to 010</Text>
       <ButtonGroup>
-        <FaTwitter size={30} color="gray" cursor={"pointer"} />
+        <RiTwitterXFill size={30} color="gray" cursor={"pointer"} />
         <p style={{ margin: 0 }}>OR</p>
         <MdEmail
           size={30}

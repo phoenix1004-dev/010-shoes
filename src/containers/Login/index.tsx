@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image from "assets/images/sneaker-intro-4.png";
+import image from "assets/images/sneaker-intro-1.png";
 import logo from "assets/images/logo/Logo 010.png";
 import Login from "components/Login";
 import { device } from "utils/device";
@@ -12,7 +12,7 @@ const Root = styled.div`
 const ImgBox = styled.div`
   width: 70%;
   height: 70%;
-  max-height: 700px;
+  max-height: 650px;
   position: fixed;
   top: 50%;
   left: 50%;

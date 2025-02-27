@@ -48,7 +48,7 @@ const Left = styled.div`
   }
 
   & .left-text {
-    margin-top: 84px;
+    margin-top: 56px;
   }
 
   @media ${device.tablet} {
@@ -77,22 +77,28 @@ const SneakerDesc = () => {
       <Container>
         <Left>
           <PageTitle className="left-title">
-            When there's blood on the streets, buy a shoe.
+            Made for Creators, Built for the Future.
           </PageTitle>
           <Text className="left-text">
-            This customizable NFT can be enjoyed both in the digital and
-            physical worlds. As a holder, you can either exchange it for a real
-            pair of high-quality Italian made sneakers in your size or enjoy
-            benefits in the crypto world. It's totally up to you!
+            The 010 OG Sneaker isn’t just a digital asset—it’s a shoe designed
+            for creators, innovators, and trendsetters. As a holder, you get it
+            all: redeem your NFT for a handcrafted, Italian-made sneaker in your
+            size while still unlocking exclusive crypto-native perks.
             <br />
             <br />
-            You can customize the NFT at every stage, adjusting the style of our
-            sneaker to your taste. The name of our first NFT sneaker model is
-            YETI. Yep, because the sneakers come in a snow-white colourway.
+            Built from the highest quality materials yet fully customizable,
+            the 010 OG is where highest level craftsmanship meets creative
+            freedom. Choose your colors, refine the materials, and make it
+            uniquely yours—because real visionaries don’t follow trends, they
+            create them.
             <br />
             <br />
-            This way each holder can embrace the creative freedom of
-            customization, where colours & materials can be added step-by-step.
+            And this is just the beginning. 010 is teaming up with some of the
+            big names for exclusive collaborations—bringing even more heat to
+            the collection. Big things are coming.
+            <br />
+            <br />
+            Create the way. Stay ahead.
           </Text>
         </Left>
         <FlexBox

@@ -30,7 +30,7 @@ const Container = styled.div`
   display: inline-flex;
   min-width: 100%;
   height: calc(100% - 60px);
-  margin: 60px 60px 10px 20px;
+  margin: 50px 60px 10px 20px;
   align-items: center;
   gap: 24px;
 `;
@@ -56,7 +56,7 @@ const SliderContainer = styled.div`
 `;
 
 const StyledText = styled(Text)`
-  max-width: 700px;
+  max-width: 900px;
   margin-top: 28px;
   @media ${device.mobile} {
     margin-top: 30px;
@@ -200,9 +200,11 @@ const Teams = () => {
     <Root className="full">
       <PageTitle>Our Team</PageTitle>
       <StyledText>
-        We are a curated team of industry professionals united by the single
-        goal to create an unconventional fashion brand that speciallizes in
-        high-qality sneakers with a twist.
+        We are a carefully curated team of industry professionals driven by a
+        single mission—to create a fashion brand that challenges the norm.
+        Specializing in high-quality sneakers with a twist, we strive for
+        innovation, highest quality craftsmanship, and bold designs to push the
+        boundaries of what’s possible.
       </StyledText>
       {store.isTablet ? (
         <SliderContainer>
