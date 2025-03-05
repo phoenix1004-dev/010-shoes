@@ -39,9 +39,10 @@ const Container = styled.div`
 const Left = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  width: 35vw;
   min-width: 30vw;
   align-self: center;
+  padding-left: 24px;
 
   & .left-title {
     margin-top: 36px;
@@ -77,25 +78,25 @@ const SneakerDesc = () => {
       <Container>
         <Left>
           <PageTitle className="left-title">
-            Made for Creators, Built for the Future.
+            Made for Creators,
+            <br />
+            Built for the Future.
           </PageTitle>
           <Text className="left-text">
-            The 010 OG Sneaker isn’t just a digital asset—it’s a shoe designed
-            for creators, innovators, and trendsetters. As a holder, you get it
-            all: redeem your NFT for a handcrafted, Italian-made sneaker in your
-            size while still unlocking exclusive crypto-native perks.
+            The 010 OG Sneaker isn’t just a digital asset—it’s designed for
+            creators, innovators, and trendsetters. As a holder, you can redeem
+            your NFT for a handcrafted, Italian-made sneaker in your size while
+            unlocking exclusive crypto-native perks.
             <br />
             <br />
-            Built from the highest quality materials yet fully customizable,
-            the 010 OG is where highest level craftsmanship meets creative
-            freedom. Choose your colors, refine the materials, and make it
-            uniquely yours—because real visionaries don’t follow trends, they
-            create them.
+            Crafted from the finest materials yet fully customizable, the 010
+            OG blends top-tier craftsmanship with creative freedom. Choose your
+            colors, refine materials, and make it yours - because visionaries
+            don’t follow trends, they set them.
             <br />
             <br />
-            And this is just the beginning. 010 is teaming up with some of the
-            big names for exclusive collaborations—bringing even more heat to
-            the collection. Big things are coming.
+            And this is just the beginning. 010 is teaming up with big names for
+            exclusive collaborations.
             <br />
             <br />
             Create the way. Stay ahead.

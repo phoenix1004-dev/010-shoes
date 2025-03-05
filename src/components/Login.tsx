@@ -85,7 +85,7 @@ const Input = styled.input`
 
 const Button = styled.button`
   width: 100%;
-  background-color: #3b82f6;
+  background-color: black;
   color: white;
   padding: 8px;
   border: none;
@@ -96,11 +96,11 @@ const Button = styled.button`
   }
 `;
 
-type EmailPopupProps = {
+type PopupProps = {
   onClose: () => void;
 };
 
-const EmialPopup: FC<EmailPopupProps> = ({ onClose }) => {
+const EmialPopup: FC<PopupProps> = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
@@ -119,8 +119,10 @@ const EmialPopup: FC<EmailPopupProps> = ({ onClose }) => {
     <Overlay>
       <PopupContainer>
         <CloseButton onClick={onClose}>&times;</CloseButton>
-        <h2 className="text-xl font-bold mb-2">Welcome!</h2>
-        <p className="text-gray-600">Enter your email below:</p>
+        <p className="text-gray-600 mx-[16px]">
+          Please enter your email in order to be one of the first to see the
+          shoe made for the digital creators by creators.
+        </p>
         <Input
           type="email"
           placeholder="Email"
@@ -133,9 +135,36 @@ const EmialPopup: FC<EmailPopupProps> = ({ onClose }) => {
   );
 };
 
+const XPopup: FC<PopupProps> = ({ onClose }) => {
+  const navigate = useNavigate();
+
+  const handleComplete = () => {
+    localStorage.setItem("user", "1");
+    navigate("/welcome");
+  };
+
+  const handleSubmit = () => {
+    onClose();
+    handleComplete();
+  };
+
+  return (
+    <Overlay>
+      <PopupContainer>
+        <CloseButton onClick={onClose}>&times;</CloseButton>
+        <p className="text-gray-600 my-[16px]">
+          Please follow us on X under @010sneaker in order to be one of the
+          first to see the shoe made for the digital creators by creators.
+        </p>
+        <Button onClick={handleSubmit}>Done</Button>
+      </PopupContainer>
+    </Overlay>
+  );
+};
+
 const Login: FC = () => {
   const [isEmailPopup, setIsEmailPopup] = useState(false);
-  // const navigate = useNavigate();
+  const [isXPopup, setIsXPopup] = useState(false);
 
   const openEmailPopup = () => {
     setIsEmailPopup(true);
@@ -145,11 +174,24 @@ const Login: FC = () => {
     setIsEmailPopup(false);
   };
 
+  const openXPopup = () => {
+    setIsXPopup(true);
+  };
+
+  const closeXPopup = () => {
+    setIsXPopup(false);
+  };
+
   return (
     <Root>
-      <Text>Onyx to 010</Text>
+      <Text>Join the 010 family and get access to our page</Text>
       <ButtonGroup>
-        <RiTwitterXFill size={30} color="gray" cursor={"pointer"} />
+        <RiTwitterXFill
+          size={30}
+          color="gray"
+          cursor={"pointer"}
+          onClick={openXPopup}
+        />
         <p style={{ margin: 0 }}>OR</p>
         <MdEmail
           size={30}
@@ -159,6 +201,7 @@ const Login: FC = () => {
         />
       </ButtonGroup>
       {isEmailPopup && <EmialPopup onClose={closeEmailPopup} />}
+      {isXPopup && <XPopup onClose={closeXPopup} />}
     </Root>
   );
 };

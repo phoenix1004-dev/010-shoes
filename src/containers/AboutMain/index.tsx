@@ -31,6 +31,7 @@ const HScroller = styled.div`
   position: relative;
   display: inline-flex;
   gap: 80px;
+  padding-left: 32px;
   height: calc(100vh - 260px);
   scrollbar-width: none;
 
@@ -38,6 +39,7 @@ const HScroller = styled.div`
     flex-direction: column;
     overflow-x: hidden;
     gap: 30px;
+    padding-left; 0;
     padding-right: 0;
     margin-right: 0;
     height: -webkit-fill-available;

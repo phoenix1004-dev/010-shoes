@@ -30,7 +30,7 @@ const Container = styled.div`
   display: inline-flex;
   min-width: 100%;
   height: calc(100% - 60px);
-  margin: 50px 60px 10px 20px;
+  margin: 50px 60px 10px 30px;
   align-items: center;
   gap: 24px;
 `;
@@ -198,8 +198,8 @@ const Teams = () => {
 
   return (
     <Root className="full">
-      <PageTitle>Our Team</PageTitle>
-      <StyledText>
+      <PageTitle className="pl-[32px]">Our Team</PageTitle>
+      <StyledText className="pl-[32px]">
         We are a carefully curated team of industry professionals driven by a
         single mission—to create a fashion brand that challenges the norm.
         Specializing in high-quality sneakers with a twist, we strive for

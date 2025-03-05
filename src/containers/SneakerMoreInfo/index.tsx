@@ -48,7 +48,7 @@ const InfoText = styled(SmallText)`
 
 const TitleContainer = styled.div`
   position: absolute;
-  right: 10%;
+  right: 3%;
   top: 40px;
 `;
 

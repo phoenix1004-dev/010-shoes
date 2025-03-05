@@ -51,7 +51,7 @@ const SneakerStart2 = () => {
     <Root className="full">
       <LogoBg src={oxImg} alt="logo" style={{ width: "auto" }} />
       <Container>
-        <PageMarker>Made with love</PageMarker>
+        <PageMarker>THE FUTURE OF SNEAKERS STARTS HERE</PageMarker>
         <PageText>
           Trends start with innovators, are spotted by visionaries, and
           amplified by the masses. The 010 OG Sneaker is more than a shoe—it’s a

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FlexBox } from "./basic/Box";
-import logoImg from "assets/images/logo/Logo 010.png";
+import logoImg from "assets/images/logo/Logo 010 white.png";
 import logoBlackImg from "assets/images/logo/Logo 010 black.png";
 import { useLocation } from "react-router-dom";
 import { MENU_ITEMS } from "../constants";

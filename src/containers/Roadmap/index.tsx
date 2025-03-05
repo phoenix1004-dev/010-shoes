@@ -12,9 +12,11 @@ const Root = styled.div`
   justify-content: flex-start;
   position: relative;
   background: ${(props) => props.theme.colors.bg};
+
   @media ${device.tablet} {
     overflow: auto;
   }
+
   @media ${device.mobile} {
     padding: 94px 0 0 0;
     overflow: auto;
