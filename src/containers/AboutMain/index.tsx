@@ -58,7 +58,7 @@ const Part1 = styled.div`
   }
 
   & .part1-text {
-    margin-top: 64px;
+    margin-top: 36px;
   }
 
   @media ${device.tablet} {
@@ -66,11 +66,11 @@ const Part1 = styled.div`
     min-width: unset;
 
     & .part1-title {
-      margin-top: 16px;
+      margin-top: 10px;
     }
 
     & .part1-text {
-      margin-top: 34px;
+      margin-top: 24px;
     }
   }
 `;
@@ -114,10 +114,10 @@ const TwoColumn = styled.div`
   display: grid;
   grid-gap: 72px;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 84px;
+  margin-top: 32px;
   @media ${device.tablet} {
     grid-gap: 20px;
-    margin-top: 24px;
+    margin-top: 18px;
   }
 `;
 
