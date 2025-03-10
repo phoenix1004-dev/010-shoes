@@ -11,6 +11,7 @@ import { device } from "utils/device";
 import { Link as RRDLink } from "react-router-dom";
 import { CustomThemeContext } from "contexts/CustomThemeContext";
 import { MenuIcon } from "./icons";
+import { useNavigate } from "react-router-dom";
 
 const Root = styled.div`
   padding: 50px 40px;
@@ -91,6 +92,7 @@ const Nav: React.FC<Props> = ({ linkColor }) => {
   const [showFull, setShowFull] = useState<boolean>(false);
   const { store } = useStore();
   const { currentTheme } = useContext(CustomThemeContext);
+  const navigate = useNavigate();
 
   const handleMenu = useCallback(() => {
     setShowFull(true);
@@ -108,11 +110,16 @@ const Nav: React.FC<Props> = ({ linkColor }) => {
     [location.pathname]
   );
 
+  const goHome = () => {
+    navigate("/about");
+  };
+
   return (
     <Root>
       <FlexBox justifyContent="space-between" alignItems="center">
         <Logo
           src={currentTheme === "dark" ? logoImg : logoBlackImg}
+          onClick={goHome}
           alt="logo"
         />
         <FlexBox alignItems="center">
