@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import image from "assets/images/sneaker-intro-2.png";
+import image from "assets/images/shoe.gif";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const Root = styled.div`
   width: 100vw;
@@ -22,15 +21,13 @@ const Container = styled.div`
 
 const ImgBox = styled.div`
   width: 100vw;
-  height: 40vh;
+  height: 60vh;
   aspect-ratio: 1/1;
   background-image: url(${image});
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain, cover;
 `;
-
-const MotionImgBox = motion(ImgBox);
 
 const Text = styled.p`
   font-size: 56px;
@@ -47,10 +44,7 @@ const Welcome = () => {
   return (
     <Root>
       <Container>
-        <MotionImgBox
-          animate={{ rotateY: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        />
+        <ImgBox />
         <Text>
           <Typewriter
             onInit={(Typewriter) => {
