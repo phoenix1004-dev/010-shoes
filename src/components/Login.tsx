@@ -175,6 +175,7 @@ const Login: FC = () => {
   };
 
   const openXPopup = () => {
+    window.open("https://x.com", "_blank");
     setIsXPopup(true);
   };
 
