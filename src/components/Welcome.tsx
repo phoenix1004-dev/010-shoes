@@ -51,7 +51,7 @@ const Welcome = () => {
               Typewriter.callFunction(() => handleWelcome());
             }}
             options={{
-              strings: `<span style="font-size: 70px; font-weight: bold;">WELCOME</span> TO O-TEN`,
+              strings: `<span style="font-size: 56px">WELCOME TO O-TEN</span>`,
               cursor: "_",
               autoStart: true,
               loop: false,
