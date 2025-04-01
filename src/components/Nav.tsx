@@ -14,7 +14,7 @@ import { MenuIcon } from "./icons";
 import { useNavigate } from "react-router-dom";
 
 const Root = styled.div`
-  padding: 50px 40px;
+  padding: 50px;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,7 +22,7 @@ const Root = styled.div`
   z-index: 9999;
 
   @media ${device.tablet} {
-    padding: 24px 26px;
+    padding: 34px 28px;
     background-color: ${(props) => props.theme.colors.bg};
   }
 `;

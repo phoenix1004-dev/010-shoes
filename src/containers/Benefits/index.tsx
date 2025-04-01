@@ -35,7 +35,7 @@ const Container = styled.div`
   grid-template-rows: repeat(1, 1fr);
   grid-auto-flow: column;
   width: max-content;
-  margin-top: 10%;
+  margin-top: 7%;
 
   @media ${device.tablet} {
     grid-template-rows: repeat(2, 1fr);
@@ -171,7 +171,7 @@ const Benefits = () => {
 
   return (
     <Root className="full">
-      <PageTitle>Benefits</PageTitle>
+      <PageTitle>This is 010</PageTitle>
       {store.isTablet ? (
         <SliderContainer>
           <Carousel

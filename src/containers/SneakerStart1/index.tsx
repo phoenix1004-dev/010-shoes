@@ -1,4 +1,4 @@
-import { PageMarker } from "components/basic";
+// import { PageMarker } from "components/basic";
 import { styled } from "styled-components";
 import { device } from "utils/device";
 import oxImg from "assets/images/shoe.gif";
@@ -60,7 +60,7 @@ const SneakerStart1 = () => {
     <Root className="full">
       <LogoBg src={oxImg} alt="logobg" />
       <Container>
-        <PageMarker>FOR THE CREATORS</PageMarker>
+        {/* <PageMarker>FOR THE CREATORS</PageMarker> */}
         <Logo src={animatedLogo} alt="logo" />
       </Container>
     </Root>

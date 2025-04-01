@@ -24,6 +24,7 @@ const Container = styled.div`
 
   @media ${device.tablet} {
     width: auto;
+    gap: 32px;
   }
 `;
 

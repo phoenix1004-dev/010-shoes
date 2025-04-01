@@ -71,7 +71,7 @@ const Gallery = styled.div`
   .gallery-4 {
     display: flex;
     align-items: flex-end;
-    padding: 36px 15% 36px 36px;
+    padding: 34px 34px 36px 34px;
     position: relative;
 
     @media ${device.tablet} {

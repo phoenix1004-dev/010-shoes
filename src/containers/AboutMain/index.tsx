@@ -54,11 +54,11 @@ const Part1 = styled.div`
   align-self: center;
 
   & .part1-title {
-    margin-top: 36px;
+    margin-top: 28px;
   }
 
   & .part1-text {
-    margin-top: 36px;
+    margin-top: 24px;
   }
 
   @media ${device.tablet} {
@@ -70,7 +70,7 @@ const Part1 = styled.div`
     }
 
     & .part1-text {
-      margin-top: 24px;
+      margin-top: 16px;
     }
   }
 `;

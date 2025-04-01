@@ -23,8 +23,6 @@ const SneakerMoreInfoPage = lazy(() => import("pages/SneakerMoreInfo"));
 const SneakerGalleryPage = lazy(() => import("pages/SneakerGalleryPage"));
 const SneakerDescPage = lazy(() => import("pages/SneakerDescPage"));
 const SneakerDetailPage = lazy(() => import("pages/SneakerDetailPage"));
-// const MintPage = lazy(() => import("pages/MintPage"));
-// const ChipPage = lazy(() => import("pages/ChipPage"));
 const FaqPage = lazy(() => import("pages/FaqPage"));
 const RoadmapPage = lazy(() => import("pages/RoadmapPage"));
 
@@ -68,18 +66,6 @@ function App() {
                   element={<PrivateRoute element={<RoadmapPage />} />}
                 />
               </Route>
-              {/* <Route path="/mint">
-                <Route
-                  path=""
-                  element={<PrivateRoute element={<MintPage />} />}
-                />
-              </Route>
-              <Route path="/chip">
-                <Route
-                  path=""
-                  element={<PrivateRoute element={<ChipPage />} />}
-                />
-              </Route> */}
               <Route path="/news">
                 <Route
                   path=""

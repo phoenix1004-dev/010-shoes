@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 const Root = styled.div`
   background-color: ${(props) => props.theme.colors.secondaryBg};
-  padding: 50px 40px;
+  padding: 50px;
   position: fixed;
   top: 0;
   left: 0;
@@ -25,7 +25,7 @@ const Root = styled.div`
   justify-content: space-between;
 
   @media ${device.mobile} {
-    padding: 34px;
+    padding: 34px 28px;
   }
 `;
 
@@ -108,7 +108,7 @@ const StyledSelect = styled.select`
   background: inherit;
   color: black;
   border: none;
-  margin: 0 10px;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
