@@ -6,8 +6,8 @@ import useStore from "hooks/useStore";
 const Root = styled.div`
   position: fixed;
   left: 50px;
-  bottom: 29px;
-  transform-origin: top left;
+  bottom: 50px;
+  transform-origin: bottom left;
   transform: rotate(-90deg);
 `;
 

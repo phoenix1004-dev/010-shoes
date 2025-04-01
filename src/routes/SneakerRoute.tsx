@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 
 const urls = [
   "/sneaker",
-  "/sneaker/more",
   "/sneaker/gallery",
   "/sneaker/desc",
   "/sneaker/detail",

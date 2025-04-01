@@ -59,6 +59,22 @@ const Title = styled.div`
   text-transform: uppercase;
 `;
 
+const Parallelogram = styled.div`
+  position: absolute;
+  right: 7%;
+  top: 30px;
+  width: 80px;
+  height: 150px;
+  background-color: #fdf84c;
+  transform: skew(-20deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+`;
+
 const SneakerMoreInfo = () => {
   return (
     <Root className="full">
@@ -74,6 +90,7 @@ const SneakerMoreInfo = () => {
             );
           })}
         </Info>
+        <Parallelogram></Parallelogram>
         <TitleContainer>
           <Title>
             <span
@@ -85,7 +102,7 @@ const SneakerMoreInfo = () => {
             >
               The
             </span>
-            Blance
+            Blanque
           </Title>
           <InfoText style={{ textAlign: "right", marginTop: "12px" }}>
             DESIGNED BY TINOW VALENTINITSCH

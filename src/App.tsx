@@ -18,7 +18,6 @@ const AboutMainPage = lazy(() => import("pages/AboutMainPage"));
 const BenefitsPage = lazy(() => import("pages/BenefitsPage"));
 const TeamsPage = lazy(() => import("pages/TeamsPage"));
 const SneakerStart1Page = lazy(() => import("pages/SneakerStart1"));
-const SneakerStart2Page = lazy(() => import("pages/SneakerStart2"));
 const SneakerMoreInfoPage = lazy(() => import("pages/SneakerMoreInfo"));
 const SneakerGalleryPage = lazy(() => import("pages/SneakerGalleryPage"));
 const SneakerDescPage = lazy(() => import("pages/SneakerDescPage"));
@@ -55,7 +54,6 @@ function App() {
                 element={<PrivateRoute element={<SneakerRoute />} />}
               >
                 <Route path="" element={<SneakerMoreInfoPage />} />
-                <Route path="more" element={<SneakerStart2Page />} />
                 <Route path="gallery" element={<SneakerGalleryPage />} />
                 <Route path="desc" element={<SneakerDescPage />} />
                 <Route path="detail" element={<SneakerDetailPage />} />
