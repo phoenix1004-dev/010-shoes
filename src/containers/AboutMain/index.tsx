@@ -7,7 +7,7 @@ import modelImg from "assets/images/placeholder-model.jpg";
 import { ScrollContainer } from "react-indiana-drag-scroll";
 import { useEffect, useMemo, useRef, useState } from "react";
 import useStore from "hooks/useStore";
-import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 const Root = styled.div`
   padding: 130px 80px;
@@ -151,24 +151,6 @@ const RightGradient = styled.div`
   }
 `;
 
-const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
-  position: fixed;
-  bottom: 5%;
-  right: 3%;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  font-size: 64px;
-`;
-
-const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
-  position: fixed;
-  bottom: 5%;
-  left: 10%;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  font-size: 64px;
-`;
-
 const Section = styled.div`
   width: calc(100vw - 160px);
   display: flex;
@@ -184,6 +166,22 @@ const Section = styled.div`
     width: calc(100vw - 56px);
   }
 `;
+
+const ScrollAction = styled.div`
+  width: 150px;
+  height: 40px;
+  background-color: #12121f;
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
+
+const ScrollText = styled.p``;
 
 const AboutMain = () => {
   const { store } = useStore();
@@ -394,15 +392,21 @@ const AboutMain = () => {
       ) : (
         <>
           <ScrollContainer>{container}</ScrollContainer>
-          {index !== 0 && (
-            <StyledAiOutlineDoubleLeft color="#fef900" onClick={onClickLeft} />
-          )}
-          {index !== 2 && (
-            <StyledAiOutlineDoubleRight
-              color="#fef900"
+          <ScrollAction>
+            <MdKeyboardArrowLeft
+              color="#25fcff"
+              size={28}
+              style={{ opacity: index === 0 ? 0.5 : 1 }}
+              onClick={onClickLeft}
+            />
+            <ScrollText>Scroll</ScrollText>
+            <MdKeyboardArrowRight
+              color="#25fcff"
+              size={28}
+              style={{ opacity: index === 2 ? 0.5 : 1 }}
               onClick={onClickRight}
             />
-          )}
+          </ScrollAction>
         </>
       )}
     </Root>

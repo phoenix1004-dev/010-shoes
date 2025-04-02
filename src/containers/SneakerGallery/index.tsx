@@ -9,7 +9,7 @@ import productImg6 from "assets/images/detail5.png";
 import useStore from "hooks/useStore";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { useEffect, useRef, useState } from "react";
-import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 const Root = styled.div`
   padding: 130px 80px;
@@ -51,23 +51,21 @@ const ProductImage = styled.img`
   }
 `;
 
-const StyledAiOutlineDoubleRight = styled(AiOutlineDoubleRight)`
+const ScrollAction = styled.div`
+  width: 150px;
+  height: 40px;
+  background-color: #12121f;
   position: fixed;
   bottom: 5%;
-  right: 5%;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  font-size: 64px;
+  right: 3%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 
-const StyledAiOutlineDoubleLeft = styled(AiOutlineDoubleLeft)`
-  position: fixed;
-  bottom: 5%;
-  left: 10%;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  font-size: 64px;
-`;
+const ScrollText = styled.p``;
 
 const images = [
   productImg1,
@@ -171,12 +169,21 @@ const SneakerGallery = () => {
               ))}
             </Container>
           </ScrollContainer>
-          {startIndex !== 0 && (
-            <StyledAiOutlineDoubleLeft color="#fef900" onClick={handlePrev} />
-          )}
-          {endIndex !== images.length - 1 && (
-            <StyledAiOutlineDoubleRight color="#fef900" onClick={handleNext} />
-          )}
+          <ScrollAction>
+            <MdKeyboardArrowLeft
+              color="#25fcff"
+              size={28}
+              style={{ opacity: startIndex === 0 ? 0.5 : 1 }}
+              onClick={handlePrev}
+            />
+            <ScrollText>Scroll</ScrollText>
+            <MdKeyboardArrowRight
+              color="#25fcff"
+              size={28}
+              style={{ opacity: endIndex === images.length - 1 ? 0.5 : 1 }}
+              onClick={handleNext}
+            />
+          </ScrollAction>
         </>
       )}
     </Root>
