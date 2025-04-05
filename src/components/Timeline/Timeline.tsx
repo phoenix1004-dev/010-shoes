@@ -6,8 +6,8 @@ import { device } from "utils/device";
 const Root = styled.div<{ width?: string | number; height?: string | number }>`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "100%"};
-  padding: 100px 0 100px 100px;
   display: flex;
+  padding-left: 70px;
 
   &:before {
     content: "";
@@ -15,7 +15,7 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
     width: 100%;
     height: 0;
     border-top: 2px solid #6e6e75;
-    left: 0;
+    left: 100px;
     top: 50%;
   }
 

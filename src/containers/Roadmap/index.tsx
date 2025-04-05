@@ -6,8 +6,11 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import useStore from "hooks/useStore";
 
 const Root = styled.div`
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  padding: 100px 0 100px 100px;
+  overflow: hidden;
   align-items: center;
   justify-content: flex-start;
   position: relative;
