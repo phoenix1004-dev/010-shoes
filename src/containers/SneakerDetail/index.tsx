@@ -127,44 +127,32 @@ export default SneakerDetail;
 const MOCK = [
   {
     id: 1,
-    label: "Design & Aesthetics",
-    content:
-      "Inspired by early gaming aesthetics, the minimalist design of the 010 OG Sneaker reflects the pixelated style of classics like Super Mario and Donkey Kong. These retro elements blend with modern, minimalist lines, fusing basketball and skate culture into a versatile everyday sneaker. The sleek white color emphasizes simplicity, while a jagged geometric pattern on the side gives it a futuristic touch. Small ventilation holes are strategically placed to improve breathability without compromising the design.",
-  },
-  {
-    id: 2,
     label: "Materials & Craftsmanship",
     content:
       "Handcrafted in Italy from premium leather, the 010 OG Sneaker offers a luxurious feel and durability. The leather is flawlessly smooth, and the craftsmanship is evident in the precise stitching and perfect fit. The tongue, also made from high-quality leather, features a subtly embossed logo, underscoring its understated elegance.",
   },
   {
+    id: 2,
+    label: "Availability",
+    content:
+      "Available only through its NFT, the sneaker is priced at 489 USDT. After purchase, the sneaker will be custom-made. Buyers can personalize their sneakers with colors, initials, and other details to ensure that each pair is unique.",
+  },
+  {
     id: 3,
-    label: "Technical Features",
+    label: "Design",
+    content:
+      "Inspired by early gaming aesthetics, the minimalist design of the 010 OG Sneaker reflects the pixelated style of classics like Super Mario and Donkey Kong. These retro elements blend with modern, minimalist lines, fusing basketball and skate culture into a versatile everyday sneaker. The sleek white color emphasizes simplicity, while a jagged geometric pattern on the side gives it a futuristic touch. Small ventilation holes are strategically placed to improve breathability without compromising the design.",
+  },
+  {
+    id: 4,
+    label: "Technical",
     content:
       "More than just a shoe, the 010 OG Sneaker is a high-tech product. Each sneaker is equipped with a chip that serves as a certificate of authenticity, using NFT and smart contract technology. When tapped with a smartphone, the chip unlocks additional features and exclusive content through a dedicated website.",
   },
   {
-    id: 4,
-    label: "Comfort and Performance",
+    id: 5,
+    label: "Performance",
     content:
       "Equipped with a flexible white rubber sole, the sneaker offers excellent cushioning and grip without compromising its sleek design. The interior is lined with soft leather or textile, enhancing comfort, making it perfect for everyday wear.",
-  },
-  {
-    id: 5,
-    label: "Creative Direction",
-    content:
-      "Designed by renowned footwear designer Tino Valentinitsch, who has worked with Adidas and Y3, the 010 OG Sneaker is a true work of art. Limited to just 10,000 pairs, each sneaker is numbered and authenticated by its unique NFT certificate.",
-  },
-  {
-    id: 6,
-    label: "Brand Identity",
-    content:
-      "The 010 OG Sneaker targets a discerning audience that values fashion, sneakers, and the crypto world. Positioned in the high-end luxury segment, it embodies innovation and a strong connection to the crypto community.",
-  },
-  {
-    id: 7,
-    label: "Price and Availability",
-    content:
-      "Available only through its NFT, the sneaker is priced at 489 USDT. After purchase, the sneaker will be custom-made. Buyers can personalize their sneakers with colors, initials, and other details to ensure that each pair is unique.",
   },
 ];
