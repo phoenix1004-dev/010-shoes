@@ -23,6 +23,7 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
     overflow-x: unset;
     display: block;
     padding: 40px 0 0 0;
+    position: relative;
     &:before {
       content: "";
       position: absolute;
