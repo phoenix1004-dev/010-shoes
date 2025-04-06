@@ -40,6 +40,7 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
 type Props = {
   data: {
     year: number;
+    color: string;
     children: { id: number; label: string; texts: string[] }[];
   }[];
 
@@ -57,8 +58,8 @@ const Timeline: React.FC<Props> = ({ data, selected, onTabChange }) => {
 
   return (
     <Root>
-      {data.map(({ year, children }, index) => (
-        <>
+      {data.map(({ year, color, children }, index) => (
+        <div className="flex" style={{ backgroundColor: color }}>
           {children.map(({ id, label, texts }) => {
             return (
               <TimelineItem
@@ -76,7 +77,7 @@ const Timeline: React.FC<Props> = ({ data, selected, onTabChange }) => {
             );
           })}
           {index < data.length - 1 && <Divider year={year} />}
-        </>
+        </div>
       ))}
     </Root>
   );

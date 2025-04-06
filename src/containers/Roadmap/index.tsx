@@ -84,6 +84,7 @@ export default Roadmap;
 const MOCK = [
   {
     year: 23,
+    color: "#0b0b18",
     children: [
       { id: 1, label: "Q1", texts: ["design & concept development"] },
       { id: 2, label: "Q2", texts: ["design & concept development"] },
@@ -112,6 +113,7 @@ const MOCK = [
   },
   {
     year: 24,
+    color: "#12121f",
     children: [
       { id: 5, label: "Q1", texts: ["design & concept development"] },
       { id: 6, label: "Q2", texts: ["design & concept development"] },
