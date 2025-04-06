@@ -47,7 +47,7 @@ const TabContainer = styled.div`
   }
 `;
 const Roadmap = () => {
-  const [selected, setSelected] = useState<number | string>(1);
+  const [selected, setSelected] = useState<number>(1);
   const { store } = useStore();
 
   return (
@@ -82,54 +82,60 @@ const Roadmap = () => {
 export default Roadmap;
 
 const MOCK = [
-  { id: 1, label: "Q2", year: 23, texts: ["design & concept development"] },
   {
-    id: 2,
-    label: "Q3",
     year: 23,
-    texts: [
-      "1st seed fundraising",
-      "expanding team",
-      "project planning",
-      "first prototypes",
+    children: [
+      { id: 1, label: "Q1", texts: ["design & concept development"] },
+      { id: 2, label: "Q2", texts: ["design & concept development"] },
+      {
+        id: 3,
+        label: "Q3",
+        texts: [
+          "1st seed fundraising",
+          "expanding team",
+          "project planning",
+          "first prototypes",
+        ],
+      },
+      {
+        id: 4,
+        label: "Q4",
+        texts: [
+          "raise public awareness",
+          "community building",
+          "app development",
+          "2nd seed fundraising",
+          "ONYX @ Sneakercon",
+        ],
+      },
     ],
   },
   {
-    id: 3,
-    label: "Q4",
-    year: 23,
-    texts: [
-      "raise public awareness",
-      "community building",
-      "app development",
-      "2nd seed fundraising",
-      "ONYX @ Sneakercon",
+    year: 24,
+    children: [
+      { id: 5, label: "Q1", texts: ["design & concept development"] },
+      { id: 6, label: "Q2", texts: ["design & concept development"] },
+      {
+        id: 7,
+        label: "Q3",
+        texts: [
+          "1st seed fundraising",
+          "expanding team",
+          "project planning",
+          "first prototypes",
+        ],
+      },
+      {
+        id: 8,
+        label: "Q4",
+        texts: [
+          "raise public awareness",
+          "community building",
+          "app development",
+          "2nd seed fundraising",
+          "ONYX @ Sneakercon",
+        ],
+      },
     ],
   },
-  { id: 4, label: "Q1", year: 24, texts: ["design & concept development"] },
-  { id: 11, label: "Q2", year: 23, texts: ["design & concept development"] },
-  {
-    id: 12,
-    label: "Q3",
-    year: 23,
-    texts: [
-      "1st seed fundraising",
-      "expanding team",
-      "project planning",
-      "first prototypes",
-    ],
-  },
-  {
-    id: 13,
-    label: "Q4",
-    year: 23,
-    texts: [
-      "raise public awareness",
-      "community building",
-      "app development",
-      "2nd seed fundraising",
-      "ONYX @ Sneakercon",
-    ],
-  },
-  { id: 14, label: "Q1", year: 24, texts: ["design & concept development"] },
 ];

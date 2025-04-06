@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { styled } from "styled-components";
 import TimelineItem from "./TimelineItem";
 import { device } from "utils/device";
+import Divider from "./Divider";
 
 const Root = styled.div<{ width?: string | number; height?: string | number }>`
   width: ${(props) => props.width || "100%"};
@@ -38,19 +39,17 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
 
 type Props = {
   data: {
-    id: number | string;
-    label: string;
     year: number;
-    texts: string[];
+    children: { id: number; label: string; texts: string[] }[];
   }[];
 
   selected?: number | string;
-  onTabChange: (id: number | string) => void;
+  onTabChange: (id: number) => void;
 };
 
 const Timeline: React.FC<Props> = ({ data, selected, onTabChange }) => {
   const handleClick = useCallback(
-    (id: number | string) => {
+    (id: number) => {
       onTabChange(id);
     },
     [onTabChange]
@@ -58,22 +57,27 @@ const Timeline: React.FC<Props> = ({ data, selected, onTabChange }) => {
 
   return (
     <Root>
-      {data.map(({ id, label, year, texts }, index) => {
-        return (
-          <TimelineItem
-            key={id}
-            id={id}
-            label={label}
-            index={index + 1}
-            year={year}
-            texts={texts}
-            left={index % 2 === 1}
-            selected={selected === id}
-            onClick={handleClick}
-            height="140px"
-          />
-        );
-      })}
+      {data.map(({ year, children }, index) => (
+        <>
+          {children.map(({ id, label, texts }) => {
+            return (
+              <TimelineItem
+                key={id}
+                id={id}
+                label={label}
+                index={id}
+                year={year}
+                texts={texts}
+                left={(id - 1) % 2 === 1}
+                selected={selected === id}
+                onClick={handleClick}
+                height="140px"
+              />
+            );
+          })}
+          {index < data.length - 1 && <Divider year={year} />}
+        </>
+      ))}
     </Root>
   );
 };

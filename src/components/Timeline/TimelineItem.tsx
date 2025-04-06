@@ -144,8 +144,8 @@ type Props = {
   texts: string[];
   selected?: boolean;
   left?: boolean;
-  id: string | number;
-  onClick: (id: number | string) => void;
+  id: number;
+  onClick: (id: number) => void;
   height?: string;
 };
 
