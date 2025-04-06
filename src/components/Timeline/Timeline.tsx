@@ -60,7 +60,7 @@ const Timeline: React.FC<Props> = ({ data, selected, onTabChange }) => {
     <Root>
       {data.map(({ year, originColor, nextColor, children }, index) => (
         <div
-          className="flex pl-[70px]"
+          className="md:flex pt-[40px] md:pl-[70px]"
           style={{ backgroundColor: originColor }}
         >
           {children.map(({ id, label, texts }) => {

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
+import { device } from "utils/device";
 
 type Props = {
   year: number;
@@ -13,6 +14,11 @@ const Root = styled.div`
   background-color: transparent;
   position: relative;
   display: flex;
+
+  @media ${device.mobile} {
+    height: 40px;
+    display: block;
+  }
 `;
 
 const Text = styled.div`
@@ -49,18 +55,47 @@ const Line = styled.div`
       transparent 30px
     )
     1;
+
+  @media ${device.mobile} {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-left: none;
+    border-bottom-width: 2px;
+    border-bottom-style: dashed;
+    border-bottom-color: #24fcff80;
+    border-image: repeating-linear-gradient(
+        to right,
+        #24fcff80 0,
+        #24fcff80 20px,
+        transparent 20px,
+        transparent 30px
+      )
+      1;
+  }
 `;
 
 const FirstPart = styled.div<{ color: string }>`
   width: 50%;
   height: 100%;
   background-color: ${(props) => props.color};
+
+  @media ${device.mobile} {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const SecondPart = styled.div<{ color: string }>`
   width: 50%;
   height: 100%;
   background-color: ${(props) => props.color};
+
+  @media ${device.mobile} {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const Divider: FC<Props> = ({ year, firstColor, secondColor }) => {
