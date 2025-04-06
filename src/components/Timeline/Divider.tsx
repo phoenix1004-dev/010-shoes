@@ -3,13 +3,16 @@ import styled from "styled-components";
 
 type Props = {
   year: number;
+  firstColor: string;
+  secondColor: string;
 };
 
 const Root = styled.div`
   height: 100%;
-  min-width: 300px;
+  min-width: 250px;
   background-color: transparent;
   position: relative;
+  display: flex;
 `;
 
 const Text = styled.div`
@@ -22,7 +25,6 @@ const Text = styled.div`
   transform: translate(-50%, -50%);
   font-size: 16px;
   font-weight: 600;
-  background-color: #0b0b18;
 `;
 
 const Symbol = styled.span`
@@ -49,13 +51,27 @@ const Line = styled.div`
     1;
 `;
 
-const Divider: FC<Props> = ({ year }) => {
+const FirstPart = styled.div<{ color: string }>`
+  width: 50%;
+  height: 100%;
+  background-color: ${(props) => props.color};
+`;
+
+const SecondPart = styled.div<{ color: string }>`
+  width: 50%;
+  height: 100%;
+  background-color: ${(props) => props.color};
+`;
+
+const Divider: FC<Props> = ({ year, firstColor, secondColor }) => {
   return (
     <Root>
       <Line />
       <Text>
         <Symbol>[</Symbol>MINT NFT COLLECTION<Symbol>]</Symbol>
       </Text>
+      <FirstPart color={firstColor} />
+      <SecondPart color={secondColor} />
     </Root>
   );
 };
