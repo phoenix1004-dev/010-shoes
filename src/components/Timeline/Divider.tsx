@@ -16,7 +16,7 @@ const Root = styled.div`
   display: flex;
 
   @media ${device.mobile} {
-    height: 40px;
+    height: 70px;
     display: block;
   }
 `;
@@ -32,12 +32,22 @@ const Text = styled.div`
   font-size: 16px;
   font-weight: 600;
   background-color: #0b0b18;
+
+  @media ${device.mobile} {
+    font-size: 12px;
+  }
 `;
 
 const Symbol = styled.span`
   font-size: 24px;
   margin-left: 10px;
   margin-right: 10px;
+
+  @media ${device.mobile} {
+    font-size: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 `;
 
 const Line = styled.div`
@@ -80,6 +90,7 @@ const Line = styled.div`
 const FirstPart = styled.div<{ color: string }>`
   width: 50%;
   height: 100%;
+  position: relative;
   background-color: ${(props) => props.color};
 
   @media ${device.mobile} {
@@ -91,6 +102,7 @@ const FirstPart = styled.div<{ color: string }>`
 const SecondPart = styled.div<{ color: string }>`
   width: 50%;
   height: 100%;
+  position: relative;
   background-color: ${(props) => props.color};
 
   @media ${device.mobile} {
@@ -99,15 +111,49 @@ const SecondPart = styled.div<{ color: string }>`
   }
 `;
 
+const FirstYear = styled.div`
+  position: absolute;
+  top: 20%;
+  right: -5px;
+  transform: rotate(-90deg) translateX(50%);
+  color: #fdf84c;
+
+  @media ${device.mobile} {
+    top: unset;
+    left: 5%;
+    bottom: 0;
+    transform: none;
+  }
+`;
+
+const SecondYear = styled.div`
+  position: absolute;
+  top: 20%;
+  left: -5px;
+  transform: rotate(-90deg) translateX(50%);
+  color: #fdf84c;
+
+  @media ${device.mobile} {
+    top: 3px;
+    left: 5%;
+    bottom: unset;
+    transform: none;
+  }
+`;
+
 const Divider: FC<Props> = ({ year, firstColor, secondColor }) => {
   return (
     <Root>
+      <FirstPart color={firstColor}>
+        <FirstYear>{2000 + year}</FirstYear>
+      </FirstPart>
+      <SecondPart color={secondColor}>
+        <SecondYear>{2000 + year + 1}</SecondYear>
+      </SecondPart>
       <Line />
       <Text>
         <Symbol>[</Symbol>MINT NFT COLLECTION<Symbol>]</Symbol>
       </Text>
-      <FirstPart color={firstColor} />
-      <SecondPart color={secondColor} />
     </Root>
   );
 };
