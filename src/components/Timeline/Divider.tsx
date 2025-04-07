@@ -31,6 +31,7 @@ const Text = styled.div`
   transform: translate(-50%, -50%);
   font-size: 16px;
   font-weight: 600;
+  background-color: #0b0b18;
 `;
 
 const Symbol = styled.span`

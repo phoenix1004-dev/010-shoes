@@ -42,7 +42,7 @@ const Container = styled.div`
   padding-left: 70px;
 
   @media ${device.mobile} {
-    padding-top: 40px;
+    padding-top: 70px;
     padding-left: 0;
     display: block;
   }
