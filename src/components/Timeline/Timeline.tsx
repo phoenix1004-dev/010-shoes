@@ -36,6 +36,18 @@ const Root = styled.div<{ width?: string | number; height?: string | number }>`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  padding-top: 0;
+  padding-left: 70px;
+
+  @media ${device.mobile} {
+    padding-top: 40px;
+    padding-left: 0;
+    display: block;
+  }
+`;
+
 type Props = {
   data: {
     year: number;
@@ -59,10 +71,7 @@ const Timeline: React.FC<Props> = ({ data, selected, onTabChange }) => {
   return (
     <Root>
       {data.map(({ year, originColor, nextColor, children }, index) => (
-        <div
-          className="md:flex pt-[40px] md:pl-[70px]"
-          style={{ backgroundColor: originColor }}
-        >
+        <Container style={{ backgroundColor: originColor }}>
           {children.map(({ id, label, texts }) => {
             return (
               <TimelineItem
@@ -86,7 +95,7 @@ const Timeline: React.FC<Props> = ({ data, selected, onTabChange }) => {
               secondColor={nextColor}
             />
           )}
-        </div>
+        </Container>
       ))}
     </Root>
   );
